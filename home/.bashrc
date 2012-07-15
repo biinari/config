@@ -113,9 +113,6 @@ alias apg='apg -a1 -m5 -x10 -MNCL -r/usr/share/dict/words -s'
 
 alias rdpcoda="xfreerdp -u 'codaagency\fatsoma' -p '!f4ts0m4!' remote.codaagency.com"
 
-complete -cf sudo
-complete -cf man
-
 alias pacman='pacman-color'
 
 man () {
