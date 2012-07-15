@@ -35,9 +35,12 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;36m\]$(__git_ps1 " %s")\[\033[00m\]\$ '
 else
-    PS1='\u@\h:\W\$ '
+    PS1='\u@\h:\W$(__git_ps1 " %s")\$ '
 fi
 unset color_prompt
+
+# Git PS1
+export GIT_PS1_SHOWUPSTREAM="auto"
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
