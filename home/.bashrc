@@ -33,9 +33,9 @@ else
     color_prompt=
 fi
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;36m\]$(__git_ps1 " %s")\[\033[00m\]\$ '
+    PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;36m\]$(__git_ps1 ' %s')\[\033[00m\]\$ "
 else
-    PS1='\u@\h:\W$(__git_ps1 " %s")\$ '
+    PS1="\u@\h:\W$(__git_ps1 ' %s')\$ "
 fi
 unset color_prompt
 
