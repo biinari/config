@@ -32,12 +32,19 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 else
     color_prompt=
 fi
-if [ "$color_prompt" = yes ]; then
-    PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;36m\]$(__git_ps1 ' %s')\[\033[00m\]\$ "
+
+if [ -n "$DESKTOP_SESSION" ]; then
+    user_host='\u'
 else
-    PS1="\u@\h:\W$(__git_ps1 ' %s')\$ "
+    user_host='\u@\h'
 fi
-unset color_prompt
+
+if [ "$color_prompt" = yes ]; then
+    PS1="\[\033[01;32m\]${user_host}\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;36m\]\$(__git_ps1 ' %s')\[\033[00m\]\$ "
+else
+    PS1="${user_host}:\W\$(__git_ps1 ' %s')\$ "
+fi
+unset color_prompt user_host
 
 # Git PS1
 export GIT_PS1_SHOWUPSTREAM="auto"
