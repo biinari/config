@@ -4,7 +4,9 @@
 export PATH=$PATH:/usr/local/jdk/bin
 
 # add android sdk to the path
-#export PATH=$PATH:$HOME/Downloads/android-sdk-linux/tools:$HOME/Downloads/android-sdk-linux/platform-tools
+if [ -d $HOME/Downloads/android-sdk-linux ] ; then
+    export PATH=$PATH:$HOME/Downloads/android-sdk-linux/tools:$HOME/Downloads/android-sdk-linux/platform-tools
+fi
 
 #put local ghc-6.10.2 to front of the path
 #export PATH=$HOME/projects/local/bin:${PATH}
