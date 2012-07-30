@@ -59,3 +59,5 @@ fi
 
 # Exit here for non-interactive shells, they only need the exports and anything after this point may break things
 tty -s || return
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
