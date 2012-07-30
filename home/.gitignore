@@ -42,3 +42,6 @@ tramp
 *.egg
 *.deb
 *.rpm
+
+# Tags file
+tags
