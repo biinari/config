@@ -107,8 +107,6 @@ alias gitvimdiff="GIT_PAGER= GIT_EXTERNAL_DIFF=gitvimdiffwrap git diff"
 alias grepplatform="grep -I --color=auto --exclude='*.svn-base' --exclude='*.swp' --exclude-dir='codapreview' --exclude-dir='.svn'"
 alias sedgrepfile="sed 's/^\([^:]*\):.*$/\1/' | sort | uniq"
 
-alias apg="apg -a 1 -m 12 -x 16 -M SNCL -r /usr/share/dict/british-english -s"
-
 alias findlarge='du -shx .* * --exclude="." --exclude=".." | grep "^[0-9.]*[MG]"'
 
 alias jslint='jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process '
@@ -116,7 +114,11 @@ alias jslintr='find . -name "*.js" -exec jsl -nologo -nofilelisting -nosummary -
 
 alias phplintr='find . -name "*.php" -exec php -l "{}" \; | grep -v "^No syntax errors detected in"'
 
-alias apg='apg -a1 -m5 -x10 -MNCL -r/usr/share/dict/words -s'
+if [ -f /usr/share/dict/words ]; then
+    alias apg='apg -a1 -m5 -x10 -n1 -MNCL -r/usr/share/dict/words'
+else
+    alias apg='apg -a1 -m5 -x10 -n1 -MNCL'
+fi
 
 alias rdpcoda="xfreerdp -u 'codaagency\fatsoma' -p '!f4ts0m4!' remote.codaagency.com"
 
