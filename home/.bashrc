@@ -59,9 +59,9 @@ xterm*|rxvt*)
 esac
 
 # enable color support of ls and also add handy aliases
-alias grep='grep -I --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn"'
-alias fgrep='fgrep -I --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn"'
-alias egrep='egrep -I --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn"'
+alias grep='grep -I --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn" --exclude=tags'
+alias fgrep='fgrep -I --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn" --exclude=tags'
+alias egrep='egrep -I --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn" --exclude=tags'
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     [ -e "$HOME/.dir_colors" ] && DIR_COLORS="$HOME/.dir_colors"
     [ -e "$DIR_COLORS" ] || DIR_COLORS=""
@@ -70,9 +70,9 @@ if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     #alias dir='ls --color=auto --format=vertical'
     #alias vdir='ls --color=auto --format=long'
 
-    alias grep='grep -I --color=auto --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn"'
-    alias fgrep='fgrep -I --color=auto --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn"'
-    alias egrep='egrep -I --color=auto --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn"'
+    alias grep='grep -I --color=auto --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn" --exclude=tags'
+    alias fgrep='fgrep -I --color=auto --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn" --exclude-tags'
+    alias egrep='egrep -I --color=auto --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn" --exclude=tags'
 fi
 
 # some more ls aliases
