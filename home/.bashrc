@@ -71,7 +71,7 @@ if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     #alias vdir='ls --color=auto --format=long'
 
     alias grep='grep -I --color=auto --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn" --exclude=tags'
-    alias fgrep='fgrep -I --color=auto --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn" --exclude-tags'
+    alias fgrep='fgrep -I --color=auto --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn" --exclude=tags'
     alias egrep='egrep -I --color=auto --exclude="*.svn-base" --exclude=".*.swp" --exclude-dir=".svn" --exclude=tags'
 fi
 
