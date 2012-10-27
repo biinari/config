@@ -13,3 +13,4 @@
 	co = checkout
 	list = ls-tree --name-only HEAD:
 	ls = ls-tree --name-only HEAD:
+	unstage = reset HEAD --
