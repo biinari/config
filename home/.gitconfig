@@ -13,3 +13,5 @@
 	co = checkout
 	list = ls-tree --name-only HEAD:
 	ls = ls-tree --name-only HEAD:
+[push]
+	default = upstream
