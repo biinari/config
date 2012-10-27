@@ -129,7 +129,8 @@ alias rdpcoda="xfreerdp -u 'codaagency\fatsoma' -p '!f4ts0m4!' remote.codaagency
 
 alias pacman='pacman-color'
 
-alias dual_monitor="xrandr --output HDMI1 --left-of LVDS1 --auto"
+alias dual_monitor="xrandr --output HDMI1 --right-of LVDS1 --auto"
+alias single_monitor="xrandr --output HDMI1 --off"
 
 man () {
     # mb - begin blinking
