@@ -8,9 +8,11 @@
 	excludesfile = /home/bill/.gitignore
 [alias]
 	vimdiff = !GIT_PAGER= GIT_EXTERNAL_DIFF=gitvimdiffwrap git diff
-	st = status
+	st = status -sb
 	ci = commit
 	co = checkout
 	list = ls-tree --name-only HEAD:
 	ls = ls-tree --name-only HEAD:
 	unstage = reset HEAD --
+[push]
+	default = upstream
