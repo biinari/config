@@ -113,6 +113,11 @@ alias jslint='jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.co
 alias jslintr='find . -name "*.js" -exec jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process \{\} \;'
 
 alias phplintr='find . -name "*.php" -exec php -l "{}" \; | grep -v "^No syntax errors detected in"'
+function csslint_error () {
+    csslint --quiet --format=compact $@ | grep -v "\(Warning\|Is the file empty\|^$\)"
+}
+alias csslintr='find . -name "*.css" -exec csslint --quiet --format=compact \{\} \; | grep -v "\(Warning\|Is the file empty\|^$\)"'
+
 
 if [ -f /usr/share/dict/words ]; then
     alias apg='apg -a1 -m5 -x10 -n1 -MNCL -r/usr/share/dict/words'
