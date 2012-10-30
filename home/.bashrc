@@ -111,6 +111,11 @@ alias sedgrepfile="sed 's/^\([^:]*\):.*$/\1/' | sort | uniq"
 
 alias findlarge='du -shx .* * --exclude="." --exclude=".." | grep "^[0-9.]*[MG]"'
 
+alias find_wcount='find . -path \*.svn\* -prune -o \( -name \*.php -o -name \*.css -o -name \*.sass -o -name \*.js -o -name \*.cs -o -name \*.coffee \) -type f -print'
+alias wcrl='wc -l `find_wcount`'
+alias wcrc='wc -c `find_wcount`'
+alias wcrw='wc -w `find_wcount`'
+
 alias jslint='jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process '
 alias jslintr='find . -name "*.js" -exec jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process \{\} \;'
 
