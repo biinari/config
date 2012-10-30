@@ -1,20 +1,21 @@
 [color]
-	ui = auto
+    ui = auto
 [user]
-	name = Bill Ruddock
-	email = bill.ruddock@gmail.com
+    name = Bill Ruddock
+    email = bill.ruddock@gmail.com
 [core]
-	autocrlf = input
-	excludesfile = /home/bill/.gitignore
+    eol = lf
+    autocrlf = input
+    excludesfile = /home/bill/.gitignore
 [push]
     default = upstream
 [alias]
-	vimdiff = !GIT_PAGER= GIT_EXTERNAL_DIFF=gitvimdiffwrap git diff
-	st = status -sb
-	ci = commit
-	co = checkout
-	list = ls-tree --name-only HEAD:
-	ls = ls-tree --name-only HEAD:
-	unstage = reset HEAD --
+    vimdiff = !GIT_PAGER= GIT_EXTERNAL_DIFF=gitvimdiffwrap git diff
+    st = status -sb
+    ci = commit
+    co = checkout
+    list = ls-tree --name-only HEAD:
+    ls = ls-tree --name-only HEAD:
+    unstage = reset HEAD --
 [push]
-	default = upstream
+    default = upstream
