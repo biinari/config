@@ -120,7 +120,7 @@ alias jslint='jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.co
 alias jslintr='find . -name "*.js" -exec jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process \{\} \;'
 
 function csslint_error () {
-    csslint --quiet --format=compact $@ | grep -v "\(Warning\|Is the file empty\|^$\)"
+    /usr/bin/csslint --quiet --format=compact $@ | grep -v "\(Warning\|Is the file empty\|^$\)"
 }
 alias csslintr='find . -name "*.css" -exec csslint --quiet --format=compact \{\} \; | grep -v "\(Warning\|Is the file empty\|^$\)"'
 
