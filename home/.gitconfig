@@ -6,6 +6,8 @@
 [core]
 	autocrlf = input
 	excludesfile = /home/bill/.gitignore
+[push]
+    default = upstream
 [alias]
 	vimdiff = !GIT_PAGER= GIT_EXTERNAL_DIFF=gitvimdiffwrap git diff
 	st = status -sb
