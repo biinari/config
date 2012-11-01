@@ -52,7 +52,7 @@ export PATH="${FATCORE}shell/bin:/var/lib/gems/1.8/bin:${PATH}"
 export TZ="Europe/London"
 
 ## PLATFORM
-export PLATFORMCORE="${FATROOT}platform/core/"
+export PLATFORMCORE="${HOME}/code/svn/fatsoma/platformcore/trunk/"
 if [ -d "$PLATFORMCORE" ]; then
 	export PATH="${PLATFORMCORE}shell/bin:${PATH}"
 fi
