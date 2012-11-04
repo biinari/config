@@ -10,7 +10,7 @@
 [push]
     default = upstream
 [alias]
-    vimdiff = !GIT_PAGER= GIT_EXTERNAL_DIFF=gitvimdiffwrap git diff
+    vimdiff = difftool
     st = status -sb
     ci = commit
     co = checkout
@@ -19,3 +19,7 @@
     unstage = reset HEAD --
 [push]
     default = upstream
+[diff]
+	tool = gvimdiff
+[difftool]
+	prompt = false
