@@ -20,6 +20,8 @@
 [push]
     default = upstream
 [diff]
-	tool = gvimdiff
+    tool = gvimdiff
 [difftool]
-	prompt = false
+    prompt = false
+[merge]
+    tool = gvimdiff
