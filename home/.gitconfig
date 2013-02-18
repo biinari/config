@@ -17,6 +17,8 @@
     list = ls-tree --name-only HEAD:
     ls = ls-tree --name-only HEAD:
     unstage = reset HEAD --
+    puff = pull --ff-only
+    prune = remote prune origin
 [push]
     default = upstream
 [diff]
