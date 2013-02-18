@@ -1,5 +1,6 @@
 [color]
     ui = auto
+    whitespace = tabwidth=4
 [user]
     name = Bill Ruddock
     email = bill.ruddock@gmail.com
