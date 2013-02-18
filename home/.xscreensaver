@@ -1,8 +1,8 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.17 for bill on Sat Jul  7 13:00:27 2012.
+# Written by xscreensaver-demo 5.19 for bill on Mon Jul 30 23:33:19 2012.
 # http://www.jwz.org/xscreensaver/
 
-timeout:	0:20:00
+timeout:	3:20:00
 cycle:		0:05:00
 lock:		False
 lockTimeout:	0:00:00
@@ -19,7 +19,7 @@ nice:		10
 memoryLimit:	0
 fade:		True
 unfade:		False
-fadeSeconds:	0:00:03
+fadeSeconds:	0:00:05
 fadeTicks:	20
 captureStderr:	True
 ignoreUninstalledPrograms:False
@@ -34,7 +34,7 @@ grabVideoFrames:    False
 chooseRandomImages: False
 imageDirectory:	
 
-mode:		random
+mode:		blank
 selected:	-1
 
 textMode:	program
