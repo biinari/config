@@ -1,24 +1,43 @@
 # ~/.bash_profile
 
+function append_path() {
+    append=$1
+    var=${2:-PATH}
+    if [ -z ${!var} ]; then
+        eval export $var="${append}"
+    else
+        [[ "${!var}" == *:$append* ]] || eval export $var="${!var}:${append}"
+    fi
+}
+function prepend_path() {
+    prepend=$1
+    var=${2:-PATH}
+    if [ -z ${!var} ]; then
+        eval export $var="${prepend}"
+    else
+        [[ "${!var}" == *$prepend:* ]] || eval export $var="${prepend}:${!var}"
+    fi
+}
+
 # add jdk to the path
-export PATH=$PATH:/usr/local/jdk/bin
+append_path /usr/local/jdk/bin
 
 # add android sdk to the path
 if [ -d $HOME/Downloads/android-sdk-linux ] ; then
-    export PATH=$PATH:$HOME/Downloads/android-sdk-linux/tools:$HOME/Downloads/android-sdk-linux/platform-tools
+    append_path $HOME/Downloads/android-sdk-linux/tools:$HOME/Downloads/android-sdk-linux/platform-tools
 fi
 
 #put local ghc-6.10.2 to front of the path
-#export PATH=$HOME/projects/local/bin:${PATH}
+#prepend_path $HOME/projects/local/bin
 
 # add cabal path
-#export PATH=$HOME/.cabal/bin:$PATH
+#prepend_path $HOME/.cabal/bin
 
 # Add Ruby gems path
-export PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin
+append_path $HOME/.gem/ruby/1.9.1/bin
 
 # Add home bin to path
-export PATH=$PATH:$HOME/bin
+append_path $HOME/bin
 
 export EDITOR="vim"
 export LANGUAGE="en_GB:en"
@@ -47,14 +66,14 @@ if [ ! -d "$FATROOT" ]; then
 fi
 export FATCORE="${FATROOT}${FATPARENT}${FATCOREID}"
 export FATWWW="${FATROOT}${FATPARENT}${FATWEBID}fatsoma/"
-export PYTHONPATH="${FATCORE}shell/lib:${FATCORE}projects:${PYTHONPATH}"
-export PATH="${FATCORE}shell/bin:/var/lib/gems/1.8/bin:${PATH}"
+prepend_path "${FATCORE}shell/lib:${FATCORE}projects" PYTHONPATH
+prepend_path "${FATCORE}shell/bin:/var/lib/gems/1.8/bin"
 export TZ="Europe/London"
 
 ## PLATFORM
 export PLATFORMCORE="${HOME}/code/svn/fatsoma/platformcore/trunk/"
 if [ -d "$PLATFORMCORE" ]; then
-	export PATH="${PLATFORMCORE}shell/bin:${PATH}"
+	prepend_path "${PLATFORMCORE}shell/bin"
 fi
 
 eval "$(rbenv init -)"
