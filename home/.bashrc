@@ -132,7 +132,7 @@ else
     alias apg='apg -a1 -m5 -x10 -n1 -MNCL'
 fi
 
-alias rdpcoda="xfreerdp -u 'codaagency\fatsoma' -p '!f4ts0m4!' remote.codaagency.com"
+alias rdpcoda="xfreerdp -u 'codaagency\\fatsoma' -p '!f4ts0m4!' remote.codaagency.com"
 
 alias dual_monitor="xrandr --output HDMI1 --right-of LVDS1 --auto"
 alias single_monitor="xrandr --output HDMI1 --off"
