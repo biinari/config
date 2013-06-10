@@ -161,6 +161,14 @@ man () {
             man "$@"
 }
 
+fs() {
+    config_dir="config/procfiles"
+    bin="foreman"
+    env=${1:-development}
+    cmd="$bin start --procfile $config_dir/$env.procfile --env .env.$env --root ."
+    $cmd
+}
+
 [ -f $HOME/git/rails_completion/rails.bash ] && . $HOME/git/rails_completion/rails.bash
 
 [ -r /usr/share/git/git-prompt.sh ] && . /usr/share/git/git-prompt.sh
