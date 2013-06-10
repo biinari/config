@@ -158,8 +158,6 @@ man () {
             man "$@"
 }
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 [ -f $HOME/git/rails_completion/rails.bash ] && . $HOME/git/rails_completion/rails.bash
 
 [ -r /usr/share/git/git-prompt.sh ] && . /usr/share/git/git-prompt.sh
