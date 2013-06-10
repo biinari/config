@@ -68,7 +68,7 @@ export FATCORE="${FATROOT}${FATPARENT}${FATCOREID}"
 export FATWWW="${FATROOT}${FATPARENT}${FATWEBID}fatsoma/"
 prepend_path "${FATCORE}shell/lib:${FATCORE}projects" PYTHONPATH
 prepend_path "${FATCORE}shell/bin:/var/lib/gems/1.8/bin"
-export TZ="Europe/London"
+#export TZ="Europe/London"
 
 ## PLATFORM
 export PLATFORMCORE="${HOME}/code/svn/fatsoma/platformcore/trunk/"
