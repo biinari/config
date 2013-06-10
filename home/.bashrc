@@ -137,6 +137,11 @@ alias rdpcoda="xfreerdp -u 'codaagency\\fatsoma' -p '!f4ts0m4!' remote.codaagenc
 alias dual_monitor="xrandr --output HDMI1 --right-of LVDS1 --auto"
 alias single_monitor="xrandr --output HDMI1 --off"
 
+alias be="bundle exec"
+alias bundleinstall="bundle install --binstubs .bundle/bin --path vendor/bundle"
+alias bundlev2="bundle install --binstubs .bundle/bin --path /home/vagrant/v2_vendor/\$(basename \$(pwd) | sed 's/v2-//')/bundle"
+alias bundle4="bundle; echo a | bundle exec rake rails:update:bin"
+
 man () {
     # mb - begin blinking
     # md - begin bold
