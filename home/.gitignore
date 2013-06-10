@@ -2,6 +2,7 @@
 ## Linux
 !.gitignore
 *~
+*.bak
 
 ## Vim
 .*.sw[a-z]
@@ -42,6 +43,10 @@ tramp
 *.egg
 *.deb
 *.rpm
+
+# bundle
+.bundle
+vendor/bundle
 
 # Tags file
 tags
