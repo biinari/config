@@ -20,6 +20,9 @@
     unstage = reset HEAD --
     puff = pull --ff-only
     prune = remote prune origin
+    thisbranch = rev-parse --abbrev-ref HEAD
+    logbranch = ! git log $(git thisbranch) --not master
+    rmmerged = ! git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d
 [push]
     default = upstream
 [diff]
