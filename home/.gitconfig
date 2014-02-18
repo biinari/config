@@ -1,33 +1,33 @@
 [color]
-    ui = auto
-    whitespace = tabwidth=4
+  ui = auto
+  whitespace = tabwidth=2
 [user]
-    name = Bill Ruddock
-    email = bill.ruddock@gmail.com
+  name = Bill Ruddock
+  email = bill.ruddock@gmail.com
 [core]
-    eol = lf
-    autocrlf = input
-    excludesfile = /home/bill/.gitignore
+  eol = lf
+  autocrlf = input
+  excludesfile = /home/bill/.gitignore
 [push]
-    default = upstream
+  default = upstream
 [alias]
-    vimdiff = difftool
-    st = status -sb
-    ci = commit
-    co = checkout
-    list = ls-tree --name-only HEAD:
-    ls = ls-tree --name-only HEAD:
-    unstage = reset HEAD --
-    puff = pull --ff-only
-    prune = remote prune origin
-    thisbranch = rev-parse --abbrev-ref HEAD
-    logbranch = ! git log $(git thisbranch) --not master
-    rmmerged = ! git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d
+  vimdiff = difftool
+  st = status -sb
+  ci = commit
+  co = checkout
+  list = ls-tree --name-only HEAD:
+  ls = ls-tree --name-only HEAD:
+  unstage = reset HEAD --
+  puff = pull --ff-only
+  prune = remote prune origin
+  thisbranch = rev-parse --abbrev-ref HEAD
+  logbranch = ! git log $(git thisbranch) --not master
+  rmmerged = ! git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d
 [push]
-    default = upstream
+  default = upstream
 [diff]
-    tool = gvimdiff
+  tool = gvimdiff
 [difftool]
-    prompt = false
+  prompt = false
 [merge]
-    tool = gvimdiff
+  tool = gvimdiff
