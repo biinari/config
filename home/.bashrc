@@ -174,6 +174,10 @@ man () {
 alias ri='ri -d /home/bill/.rbenv/versions/2.0.0-p247/share/ri/2.0.0/system'
 alias railspry="rails r \"require 'pry'; pry\""
 
+EC() {
+  echo -e '\e[1;33m'code $?'\e[m'
+}
+trap EC ERR
 
 [ -f $HOME/git/rails_completion/rails.bash ] && . $HOME/git/rails_completion/rails.bash
 
