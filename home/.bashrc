@@ -86,8 +86,8 @@ unset grep_excludes
 #alias l='ls -CF'
 alias lsp='ls --color=no -p'
 
-# Make less search case-insensitive
-alias less="less -i"
+# Make less search case-insensitive and understand escape codes
+alias less="less -i -R"
 
 alias svndiffw="svn diff --diff-cmd=diff -x -uw"
 alias svngvimdiff="svn diff --diff-cmd=svnvimdiffwrap"
