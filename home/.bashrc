@@ -59,7 +59,7 @@ xterm*|rxvt*)
 esac
 
 # enable color support of ls and also add handy aliases
-grep_excludes='--exclude=".*.swp" --exclude-dir=.svn --exclude-dir=.git --exclude-dir=templates_c --exclude-dir=min --exclude=tags --exclude-dir=vendor --exclude=debug.log --exclude=blog-deleted.php --exclude-dir=cache --exclude-dir=blog --exclude-dir=log'
+grep_excludes='--exclude=".*.swp" --exclude-dir=.svn --exclude-dir=.git --exclude-dir=templates_c --exclude-dir=min --exclude=tags --exclude-dir=vendor --exclude=debug.log --exclude=blog-deleted.php --exclude-dir=cache --exclude-dir=blog --exclude-dir=log --exclude-dir=logs --exclude-dir=public'
 alias grep="grep -I ${grep_excludes}"
 alias fgrep="fgrep -I ${grep_excludes}"
 alias egrep="egrep -I ${grep_excludes}"
