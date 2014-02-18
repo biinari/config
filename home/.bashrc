@@ -57,6 +57,9 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+title() {
+  PROMPT_COMMAND="echo -ne \"\033]0;$@ : \${PWD/\$HOME/~}\007\""
+}
 
 # enable color support of ls and also add handy aliases
 grep_excludes='--exclude=".*.swp" --exclude-dir=.svn --exclude-dir=.git --exclude-dir=templates_c --exclude-dir=min --exclude=tags --exclude-dir=vendor --exclude=debug.log --exclude=blog-deleted.php --exclude-dir=cache --exclude-dir=blog --exclude-dir=log --exclude-dir=logs --exclude-dir=public'
