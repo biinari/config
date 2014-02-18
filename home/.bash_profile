@@ -82,6 +82,8 @@ fi
 eval "$(rbenv init -)"
 export PATH="./bin:${PATH}"
 
+export AWS_CONFIG_FILE="${HOME}/.aws/config"
+
 # Only run these on interactive shells
 if tty -s ; then
     eval $(keychain --eval --agents ssh -Q --quiet id_rsa ~/code/fatsoma/deployment_and_provisioning/keys/deploy_id_rsa ~/.ssh/bill_fatsoma.pem ~/code/fatsoma/v2-chef/.chef/fatsoma.pem )
