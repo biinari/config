@@ -168,6 +168,9 @@ man () {
             man "$@"
 }
 
+alias ri='ri -d /home/bill/.rbenv/versions/2.0.0-p247/share/ri/2.0.0/system'
+alias railspry="rails r \"require 'pry'; pry\""
+
 fs() {
     config_dir="config/procfiles"
     bin="foreman"
