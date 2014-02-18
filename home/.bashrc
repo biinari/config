@@ -149,6 +149,9 @@ alias scpops="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 alias honeybadgerkeys="(cd ~/v2 ; for i in * ; do [ -f \$i/config/initializers/honeybadger.rb ] && (echo -n \"\$i \" && grep api_key \$i/config/initializers/honeybadger.rb) | awk '{ print \$4 \" \" \$1 }' ; done) | sort"
 
+alias bofh="telnet towel.blinkenlights.nl 666"
+alias starwars="telnet towel.blinkenlights.nl"
+
 man () {
     # mb - begin blinking
     # md - begin bold
