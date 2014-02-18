@@ -36,6 +36,9 @@ fi
 # Add Ruby gems path
 append_path $HOME/.gem/ruby/2.0.0/bin
 
+# Add Heroku path
+prepend_path "/usr/local/heroku/bin"
+
 # Add home bin to path
 append_path $HOME/bin
 
