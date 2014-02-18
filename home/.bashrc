@@ -141,9 +141,13 @@ alias dual_monitor="xrandr --output HDMI1 --right-of LVDS1 --auto"
 alias single_monitor="xrandr --output HDMI1 --off"
 
 alias be="bundle exec"
-alias bundleinstall="bundle install --binstubs .bundle/bin --path vendor/bundle"
-alias bundlev2="bundle install --binstubs .bundle/bin --path /home/vagrant/v2_vendor/\$(basename \$(pwd) | sed 's/v2-//')/bundle"
-alias bundle4="bundle; echo a | bundle exec rake rails:update:bin"
+alias bundleinstall="bundle install -j4 --binstubs .bundle/bin --path vendor/bundle"
+alias bundlev2="bundle install -j4 --binstubs .bundle/bin --path /home/vagrant/v2_vendor/\$(basename \$(pwd) | sed 's/v2-//')/bundle"
+alias bundle4="bundle -j4; echo a | bundle exec rake rails:update:bin"
+alias sshops="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+alias scpops="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+
+alias honeybadgerkeys="(cd ~/v2 ; for i in * ; do [ -f \$i/config/initializers/honeybadger.rb ] && (echo -n \"\$i \" && grep api_key \$i/config/initializers/honeybadger.rb) | awk '{ print \$4 \" \" \$1 }' ; done) | sort"
 
 man () {
     # mb - begin blinking
