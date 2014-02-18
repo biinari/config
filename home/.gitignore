@@ -50,3 +50,6 @@ vendor/bundle
 
 # Tags file
 tags
+
+# Rails projections
+/config/projections.json
