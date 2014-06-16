@@ -120,7 +120,7 @@ alias wcrc='wc -c `find_wcount`'
 alias wcrw='wc -w `find_wcount`'
 
 alias jslint='jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process '
-alias jslintr='find . -name "*.js" -exec jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process \{\} \;'
+alias jslintr='find . -name "*.js" -not -name "*.min.*" -not -path "*/vendor/*" -exec jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process \{\} \;'
 
 function csslint_error () {
     /usr/bin/csslint --quiet --format=compact $@ | grep -v "\(Warning\|Is the file empty\|^$\)"
