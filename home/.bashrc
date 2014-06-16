@@ -191,6 +191,10 @@ EC() {
 }
 trap EC ERR
 
+aurap() {
+  aura -Ap $1 | view - +setf\ sh
+}
+
 [ -f $HOME/git/rails_completion/rails.bash ] && . $HOME/git/rails_completion/rails.bash
 
 [ -r /usr/share/git/git-prompt.sh ] && . /usr/share/git/git-prompt.sh
