@@ -181,6 +181,9 @@ man () {
 
 alias ri='ri -d /home/bill/.rbenv/versions/2.0.0-p247/share/ri/2.0.0/system'
 alias railspry="rails r \"require 'pry'; pry\""
+alias rubocop='RBENV_VERSION=system /home/bill/git/rubocop/bin/rubocop'
+alias pylint='pylint --rcfile=/home/bill/.pylintrc'
+alias phpcs='phpcs --standard=/home/bill/code/phpcs/BiinariStandard -s --tab-width=4'
 
 EC() {
   echo -e '\e[1;33m'code $?'\e[m'
