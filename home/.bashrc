@@ -184,6 +184,7 @@ alias railspry="rails r \"require 'pry'; pry\""
 alias rubocop='RBENV_VERSION=system /home/bill/git/rubocop/bin/rubocop'
 alias pylint='pylint --rcfile=/home/bill/.pylintrc'
 alias phpcs='phpcs --standard=/home/bill/code/phpcs/BiinariStandard -s --tab-width=4'
+alias ipython2='ipython2 --no-confirm-exit'
 
 EC() {
   echo -e '\e[1;33m'code $?'\e[m'
