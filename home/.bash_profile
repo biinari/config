@@ -103,5 +103,6 @@ complete -F _gorun_complete gorun
 if tty -s ; then
     eval $(keychain --eval --agents ssh -Q --quiet id_rsa ~/code/fatsoma/deployment_and_provisioning/keys/deploy_id_rsa ~/.ssh/bill_fatsoma.pem ~/code/v2/chef/.chef/fatsoma-staging.pem ~/code/v2/chef/.chef/fatsoma-production.pem)
 
-    eval "$(hub alias -s)"
+    # hub makes git prompt slower, and I can't be bothered tweaking those scripts
+    #eval "$(hub alias -s)"
 fi
