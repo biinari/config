@@ -1,0 +1,100 @@
+AccessModifierIndentation:
+  Enabled: false
+
+AccessorMethodName:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Exclude:
+    - '**/lib/client/*/concerns/**'
+
+ClassLength:
+  Max: 120
+
+CollectionMethods:
+  PreferredMethods:
+    inject:
+
+Documentation:
+  Enabled: false
+
+EmptyLines:
+  Exclude:
+    - '**/config.rb'
+
+EmptyLinesAroundBody:
+  Enabled: false
+
+FileName:
+  Exclude:
+    - '**/Capfile'
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/Vagrantfile'
+
+LeadingCommentSpace:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+  Max: 30
+
+LineLength:
+  Enabled: false
+  Max: 79
+  Exclude:
+    - '**/config/routes.rb'
+
+Lambda:
+  Enabled: false
+
+# l.() vs l.call()
+LambdaCall:
+  Enabled: false
+
+NumericLiterals:
+  MinDigits: 17
+
+PredicateName:
+  Enabled: false
+
+RedundantSelf:
+  Enabled: false
+
+RescueModifier:
+  Enabled: false
+
+Semicolon:
+  Enabled: false
+
+SpaceAroundEqualsInParameterDefault:
+  Enabled: false
+
+SpaceInsideBrackets:
+  Enabled: false
+
+# fail vs raise
+SignalException:
+  Enabled: false
+
+SingleSpaceBeforeFirstArg:
+  Enabled: false
+
+StringLiterals:
+  Exclude:
+    - '**/config.rb'
+
+UselessAssignment:
+  Exclude:
+    - '**/config.rb'
+
+WordArray:
+  MinSize: 2
+
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - '**/db/**'
+    - '**/vendor/**'
