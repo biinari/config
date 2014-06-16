@@ -142,7 +142,10 @@ fi
 
 alias rdpcoda="xfreerdp -u 'codaagency\\fatsoma' -p '!f4ts0m4!' remote.codaagency.com"
 
-alias dual_monitor="xrandr --output HDMI1 --right-of LVDS1 --auto"
+function dual_monitor () {
+    side=${1:-left}
+    xrandr --output HDMI1 --${side}-of LVDS1 --auto
+}
 alias single_monitor="xrandr --output HDMI1 --off"
 
 alias be="bundle exec"
