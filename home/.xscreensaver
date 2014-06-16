@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.19 for bill on Mon Jul 30 23:33:19 2012.
+# Written by xscreensaver-demo 5.26 for bill on Sat Dec 21 11:15:23 2013.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	3:20:00
@@ -24,12 +24,12 @@ fadeTicks:	20
 captureStderr:	True
 ignoreUninstalledPrograms:False
 font:		*-medium-r-*-140-*-m-*
-dpmsEnabled:	True
+dpmsEnabled:	False
 dpmsQuickOff:	False
 dpmsStandby:	2:00:00
 dpmsSuspend:	2:00:00
 dpmsOff:	4:00:00
-grabDesktopImages:  True
+grabDesktopImages:  False
 grabVideoFrames:    False
 chooseRandomImages: False
 imageDirectory:	
@@ -245,6 +245,11 @@ programs:								      \
   GL: 				hilbert -root				    \n\
   GL: 				tronbit -root				    \n\
 -				electricsheep --root 1			    \n\
+				hexadrop -root				    \n\
+  GL: 				kaleidocycle -root			    \n\
+  GL: 				quasicrystal -root			    \n\
+  GL: 				unknownpleasures -root			    \n\
+  GL: 				geodesic -root				    \n\
 
 
 pointerPollTime:    0:00:05
