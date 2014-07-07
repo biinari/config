@@ -122,10 +122,11 @@ alias wcrw='wc -w `find_wcount`'
 alias jslint='jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process '
 alias jslintr='find . -name "*.js" -not -name "*.min.*" -not -path "*/vendor/*" -exec jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process \{\} \;'
 
+csslint_ignores='--ignore=adjoining-classes,overqualified-elements,ids,qualified-headings,unique-headings'
 function csslint_error () {
-    /usr/bin/csslint --quiet --format=compact $@ | grep -v "\(Warning\|Is the file empty\|^$\)"
+    /usr/bin/csslint --quiet --format=compact ${csslint_ignores} $@ | grep -v "\(Warning\|Is the file empty\|^$\)"
 }
-alias csslintr='find . -name "*.css" -exec csslint --quiet --format=compact \{\} \; | grep -v "\(Warning\|Is the file empty\|^$\)"'
+alias csslintr="find . -name '*.css' -exec csslint --quiet --format=compact ${csslint_ignores} \{\} \; | grep -v '\(Warning\|Is the file empty\|^$\)'"
 
 function phplintr () {
     output=$(find . -name "*.php" -exec php -n -l "{}" \;)
