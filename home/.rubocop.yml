@@ -9,7 +9,7 @@ ClassAndModuleChildren:
     - '**/lib/client/*/concerns/**'
 
 ClassLength:
-  Max: 120
+  Enabled: false
 
 CollectionMethods:
   PreferredMethods:
@@ -36,21 +36,17 @@ FileName:
 LeadingCommentSpace:
   Enabled: false
 
-MethodLength:
-  Enabled: false
-  Max: 30
-
 LineLength:
   Enabled: false
-  Max: 79
-  Exclude:
-    - '**/config/routes.rb'
 
 Lambda:
   Enabled: false
 
 # l.() vs l.call()
 LambdaCall:
+  Enabled: false
+
+MethodLength:
   Enabled: false
 
 NumericLiterals:
