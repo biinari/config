@@ -187,7 +187,7 @@ alias phpcs='phpcs --standard=/home/bill/code/phpcs/BiinariStandard -s --tab-wid
 alias ipython2='ipython2 --no-confirm-exit'
 
 EC() {
-  echo -e '\e[1;33m'code $?'\e[m'
+  echo -e '\033[1;33m'code $?'\033[m'
 }
 trap EC ERR
 
