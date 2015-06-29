@@ -1,15 +1,24 @@
 linters:
+  BorderZero:
+    enabled: false
   EmptyLineBetweenBlocks:
     enabled: false
   Indentation:
     width: 2
+  LeadingZero:
+    enabled: false
   PropertySortOrder:
     enabled: false
   SelectorDepth:
-    max_depth: 5
+    enabled: false
+    max_depth: 6
 
+  CapitalizationInSelector:
+    enabled: false
+  MergeableSelector:
+    enabled: false
   NameFormat:
-    enabled: true
+    enabled: false
     convention: hyphenated_lowercase # or 'BEM', or a regex pattern
   StringQuotes:
     enabled: false
