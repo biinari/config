@@ -22,7 +22,7 @@
   prune = remote prune origin
   thisbranch = rev-parse --abbrev-ref HEAD
   logbranch = ! git log $(git thisbranch) --not master
-  rmmerged = ! git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d
+  rmmerged = ! [ "`git thisbranch`" != "master" ] && echo "not on master branch so refusing to remove merged branches" || git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d
   toptag = describe --tags --abbrev=0 HEAD
   masterup = ! ([ "`git thisbranch`" = "master" ] || git co master) && git pull && git remote prune origin && ( git rmmerged || true )
   sed = ! git grep -z --full-name -l '.' | xargs -0 sed -i -e
