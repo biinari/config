@@ -171,7 +171,14 @@ function v2_out_of_date () {
   )
 }
 
-alias honeybadgerkeys="(cd ~/v2 ; for i in * ; do [ -f \$i/config/initializers/honeybadger.rb ] && (echo -n \"\$i \" && grep api_key \$i/config/initializers/honeybadger.rb) | awk '{ print \$4 \" \" \$1 }' ; done) | sort"
+function honeybadgerkeys () {
+  (
+    cd ~/v2
+    for app in * ; do
+      [ -f "$app/config/honeybadger.yml" ] && (echo -n "$app " && grep api_key "$app/config/honeybadger.yml") | awk '{ print $3 " " $1 }'
+    done
+  ) | sort
+}
 
 alias bofh="telnet towel.blinkenlights.nl 666"
 alias starwars="telnet towel.blinkenlights.nl"
