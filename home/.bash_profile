@@ -1,14 +1,17 @@
+#!/bin/bash
 # ~/.bash_profile
 
+# shellcheck disable=SC2086
 function append_path() {
     append=$1
     var=${2:-PATH}
-    if [ -z ${!var} ]; then
+    if [ -z "${!var}" ]; then
         eval export $var="${append}"
     else
         [[ "${!var}" == *:$append* ]] || eval export $var="${!var}:${append}"
     fi
 }
+# shellcheck disable=SC2086
 function prepend_path() {
     prepend=$1
     var=${2:-PATH}
@@ -23,24 +26,24 @@ function prepend_path() {
 append_path /usr/local/jdk/bin
 
 # add android sdk to the path
-if [ -d $HOME/Downloads/android-sdk-linux ] ; then
-    append_path $HOME/Downloads/android-sdk-linux/tools:$HOME/Downloads/android-sdk-linux/platform-tools
+if [ -d "$HOME/Downloads/android-sdk-linux" ] ; then
+    append_path "$HOME/Downloads/android-sdk-linux/tools:$HOME/Downloads/android-sdk-linux/platform-tools"
 fi
 
 #put local ghc-6.10.2 to front of the path
-#prepend_path $HOME/projects/local/bin
+#prepend_path "$HOME/projects/local/bin"
 
 # add cabal path
-#prepend_path $HOME/.cabal/bin
+#prepend_path "$HOME/.cabal/bin"
 
 # Add Ruby gems path
-append_path $HOME/.gem/ruby/2.1.0/bin
+append_path "$HOME/.gem/ruby/2.1.0/bin"
 
 # Add Heroku path
 prepend_path "/usr/local/heroku/bin"
 
 # Add home bin to path
-append_path $HOME/bin
+append_path "$HOME/bin"
 
 export EDITOR="vim"
 export LANGUAGE="en_GB:en"
@@ -78,6 +81,7 @@ export GOPATH="${HOME}/code/go"
 gorun() {
   "${GOPATH}/bin/${*}"
 }
+# shellcheck disable=2086
 _gorun_complete() {
   local cur=${COMP_WORDS[COMP_CWORD]}
   COMPREPLY=( $(compgen -W "$(ls "${GOPATH}/bin/")" -- $cur) )
@@ -88,6 +92,7 @@ export GATLING_HOME=/home/bill/Downloads/gatling/gatling-charts-highcharts-bundl
 
 # Only run these on interactive shells
 if tty -s ; then
+    # shellcheck disable=2046
     eval $(keychain --eval --agents ssh -Q --quiet id_rsa ~/code/fatsoma/deployment_and_provisioning/keys/deploy_id_rsa ~/.ssh/bill_fatsoma.pem ~/code/v2/chef/.chef/fatsoma-staging.pem ~/code/v2/chef/.chef/fatsoma-preview.pem ~/code/v2/chef/.chef/fatsoma-production.pem)
 
     # hub makes git prompt slower, and I can't be bothered tweaking those scripts
