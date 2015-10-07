@@ -4,6 +4,7 @@
 if [ -f "$HOME/.bash_profile" ]; then
     if [ -z "$_BASHRC" ]; then
         export _BASHRC=1
+        # shellcheck disable=1090
         . "$HOME/.bash_profile"
     fi
 fi
@@ -69,8 +70,11 @@ function title () {
 
 # enable color support of ls and also add handy aliases
 grep_excludes='--exclude=".*.swp" --exclude-dir=.svn --exclude-dir=.git --exclude-dir=templates_c --exclude-dir=min --exclude=tags --exclude-dir=vendor --exclude-dir=.bundle --exclude=debug.log --exclude=blog-deleted.php --exclude-dir=blog --exclude-dir=log --exclude-dir=logs --exclude-dir=request_cache --exclude-dir=saved_pages --exclude-dir=coverage'
+# shellcheck disable=SC2139
 alias grep="grep -I ${grep_excludes}"
+# shellcheck disable=SC2139
 alias fgrep="fgrep -I ${grep_excludes}"
+# shellcheck disable=SC2139
 alias egrep="egrep -I ${grep_excludes}"
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     [ -e "$HOME/.dir_colors" ] && DIR_COLORS="$HOME/.dir_colors"
@@ -80,8 +84,11 @@ if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     #alias dir='ls --color=auto --format=vertical'
     #alias vdir='ls --color=auto --format=long'
 
+    # shellcheck disable=SC2139
     alias grep="grep -I --color=auto ${grep_excludes}"
+    # shellcheck disable=SC2139
     alias fgrep="fgrep -I --color=auto ${grep_excludes}"
+    # shellcheck disable=SC2139
     alias egrep="egrep -I --color=auto ${grep_excludes}"
 fi
 unset grep_excludes
@@ -130,8 +137,10 @@ alias jslintr='find . -name "*.js" -not -name "*.min.*" -not -path "*/vendor/*" 
 
 csslint_ignores='--ignore=adjoining-classes,overqualified-elements,ids,qualified-headings,unique-headings'
 function csslint_error () {
+    # shellcheck disable=SC2048 disable=2086
     /usr/bin/csslint --quiet --format=compact ${csslint_ignores} $* | grep -v "\(Warning\|Is the file empty\|^$\)"
 }
+# shellcheck disable=SC2139
 alias csslintr="find . -name '*.css' -exec csslint --quiet --format=compact ${csslint_ignores} \{\} \; | grep -v '\(Warning\|Is the file empty\|^$\)'"
 
 function phplintr () {
@@ -166,14 +175,14 @@ alias v2_flood_create_event="gatling -sf \${HOME}/v2/v2-load-tests/simulations -
 function v2_out_of_date () {
   ENVIRONMENT=${ENVIRONMENT:-$1}
   (
-    cd ~/v2/tools
+    cd ~/v2/tools || (echo could not find ~/v2/tools ; exit)
     bin/tools deploys:current_sha all "${ENVIRONMENT}" | grep 'out of date' | sed 's/^.*\(https.*\)$/\1/' | sort | uniq | xargs google-chrome
   )
 }
 
 function honeybadgerkeys () {
   (
-    cd ~/v2
+    cd ~/v2 || (echo could not find ~/v2 ; exit)
     for app in * ; do
       [ -f "$app/config/honeybadger.yml" ] && (echo -n "$app " && grep api_key "$app/config/honeybadger.yml") | awk '{ print $3 " " $1 }'
     done
@@ -224,6 +233,8 @@ function aurap () {
   aura -Ap "$1" | view - +setf\ sh
 }
 
+# shellcheck disable=1090
 [ -f "$HOME/git/rails_completion/rails.bash" ] && . "$HOME/git/rails_completion/rails.bash"
 
+# shellcheck disable=1091
 [ -r /usr/share/git/git-prompt.sh ] && . /usr/share/git/git-prompt.sh
