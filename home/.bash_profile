@@ -99,7 +99,7 @@ _gorun_complete() {
 }
 complete -F _gorun_complete gorun
 
-export GATLING_HOME=/home/bill/.local/share/java/gatling-stress-tool
+export GATLING_HOME=/home/bill/Downloads/gatling/gatling-charts-highcharts-bundle-2.1.7
 
 # Only run these on interactive shells
 if tty -s ; then
