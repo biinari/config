@@ -161,6 +161,7 @@ alias bundlev2="bundle install -j4 --binstubs .bundle/bin --path /home/vagrant/v
 alias bundle4="bundle -j4; echo a | bundle exec rake rails:update:bin"
 alias sshops="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias scpops="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+alias v2_flood_create_event="gatling -sf \${HOME}/v2/v2-load-tests/simulations -s CreateEventSimulation | grep -A1 'EVENT VANITY NAME' | tail -n 1"
 
 function v2_out_of_date () {
   ENVIRONMENT=${ENVIRONMENT:-$1}
