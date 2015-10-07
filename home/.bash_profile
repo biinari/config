@@ -56,21 +56,6 @@ export EC2_PRIVATE_KEY=~/.ec2/pk-bill_dvwiird.pem
 export EC2_CERT=~/.ec2/cert-bill_dvwiird.pem
 export EC2_URL=https://ec2.eu-west-1.amazonaws.com
 
-# Fatsoma profile
-FATCOREID="_core/"
-FATPARENT="fatsoma/"
-FATROOT="/mnt/local/master/"
-FATWEBID="web/"
-if [ ! -d "$FATROOT" ]; then
-    FATCOREID="fatsomacore/"
-    FATPARENT=""
-    FATROOT="/var/www/"
-    FATWEBID=""
-fi
-export FATCORE="${FATROOT}${FATPARENT}${FATCOREID}"
-export FATWWW="${FATROOT}${FATPARENT}${FATWEBID}fatsoma/"
-prepend_path "${FATCORE}shell/lib:${FATCORE}projects" PYTHONPATH
-prepend_path "${FATCORE}shell/bin:/var/lib/gems/1.8/bin"
 #export TZ="Europe/London"
 
 ## PLATFORM
