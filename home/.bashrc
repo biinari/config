@@ -183,6 +183,8 @@ function honeybadgerkeys () {
 alias bofh="telnet towel.blinkenlights.nl 666"
 alias starwars="telnet towel.blinkenlights.nl"
 
+alias curlmyip="curl wtfismyip.com/text"
+
 function man () {
     # mb - begin blinking
     # md - begin bold
