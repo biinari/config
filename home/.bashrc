@@ -1,3 +1,4 @@
+#!/bin/bash
 # ~/.bashrc
 
 if [ -f "$HOME/.bash_profile" ]; then
@@ -69,7 +70,7 @@ alias egrep="egrep -I ${grep_excludes}"
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     [ -e "$HOME/.dir_colors" ] && DIR_COLORS="$HOME/.dir_colors"
     [ -e "$DIR_COLORS" ] || DIR_COLORS=""
-    eval "`dircolors -b $DIR_COLORS`"
+    eval "$(dircolors -b $DIR_COLORS)"
     alias ls='ls --color=auto'
     #alias dir='ls --color=auto --format=vertical'
     #alias vdir='ls --color=auto --format=long'
@@ -114,25 +115,25 @@ alias sedgrepfile="sed 's/^\([^:]*\):.*$/\1/' | sort | uniq"
 
 alias findlarge='du -shx .* * --exclude="." --exclude=".." | grep "^[0-9.]*[MG]"'
 
-alias find_wcount='find . -path \*.svn\* -prune -o -path \*.git\* -prune -o \( -name \*.php -o -name \*.css -o -name \*.sass -o -name \*.js -o -name \*.cs -o -name \*.coffee \) -type f -print'
-alias wcrl='wc -l `find_wcount`'
-alias wcrc='wc -c `find_wcount`'
-alias wcrw='wc -w `find_wcount`'
+alias find_wcount='find . -path \*.svn\* -prune -o -path \*.git\* -prune -o -regex ".*\.\(php\|css\|s[ac]ss\|js\|cs\|coffee\|rb\|rake\|py\|sh\)" -type f'
+alias wcrl='find_wcount -exec wc -l \{\} \+'
+alias wcrc='find_wcount -exec wc -c \{\} \+'
+alias wcrw='find_wcount -exec wc -w \{\} \+'
 
 alias jslint='jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process '
 alias jslintr='find . -name "*.js" -not -name "*.min.*" -not -path "*/vendor/*" -exec jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process \{\} \;'
 
 csslint_ignores='--ignore=adjoining-classes,overqualified-elements,ids,qualified-headings,unique-headings'
 function csslint_error () {
-    /usr/bin/csslint --quiet --format=compact ${csslint_ignores} $@ | grep -v "\(Warning\|Is the file empty\|^$\)"
+    /usr/bin/csslint --quiet --format=compact ${csslint_ignores} $* | grep -v "\(Warning\|Is the file empty\|^$\)"
 }
 alias csslintr="find . -name '*.css' -exec csslint --quiet --format=compact ${csslint_ignores} \{\} \; | grep -v '\(Warning\|Is the file empty\|^$\)'"
 
 function phplintr () {
-    output=$(find . -name "*.php" -exec php -n -l "{}" \;)
+    output=$(find . -name "*.php" -exec php -n -l \{\} \;)
     status=$?
-    echo $output | grep -v "^No syntax errors detected in"
-    exit $status
+    echo "$output" | grep -v "^No syntax errors detected in"
+    return $status
 }
 
 if [ -f /usr/share/dict/words ]; then
@@ -145,7 +146,7 @@ alias rdpcoda="xfreerdp -u 'codaagency\\fatsoma' -p '!f4ts0m4!' remote.codaagenc
 
 function dual_monitor () {
     side=${1:-left}
-    xrandr --output HDMI1 --${side}-of LVDS1 --auto
+    xrandr --output HDMI1 "--${side}-of" LVDS1 --auto
 }
 alias single_monitor="xrandr --output HDMI1 --off"
 
@@ -161,7 +162,7 @@ alias honeybadgerkeys="(cd ~/v2 ; for i in * ; do [ -f \$i/config/initializers/h
 alias bofh="telnet towel.blinkenlights.nl 666"
 alias starwars="telnet towel.blinkenlights.nl"
 
-man () {
+function man () {
     # mb - begin blinking
     # md - begin bold
     # me - end mode
@@ -170,13 +171,13 @@ man () {
     # ue - end underline
     # us - begin underline
     env \
-        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-        LESS_TERMCAP_md=$(printf "\e[1;38;5;74m") \
-        LESS_TERMCAP_me=$(printf "\e[0m") \
-        LESS_TERMCAP_se=$(printf "\e[0m") \
-        LESS_TERMCAP_so=$(printf "\e[38;5;246m") \
-        LESS_TERMCAP_ue=$(printf "\e[0m") \
-        LESS_TERMCAP_us=$(printf "\e[4;37m") \
+        LESS_TERMCAP_mb="$(printf "\e[1;31m")" \
+        LESS_TERMCAP_md="$(printf "\e[1;38;5;74m")" \
+        LESS_TERMCAP_me="$(printf "\e[0m")" \
+        LESS_TERMCAP_se="$(printf "\e[0m")" \
+        LESS_TERMCAP_so="$(printf "\e[38;5;246m")" \
+        LESS_TERMCAP_ue="$(printf "\e[0m")" \
+        LESS_TERMCAP_us="$(printf "\e[4;37m")" \
             man "$@"
 }
 
@@ -191,15 +192,15 @@ alias ipython2='ipython2 --no-confirm-exit'
 
 alias heroku_apps='heroku apps | grep -v "^\(===\|$\)" | cut -d" " -f1'
 
-EC() {
-  echo -e '\033[1;33m'code $?'\033[m'
+function EC () {
+  echo -e "\e[1;33mcode $?\e[m"
 }
 trap EC ERR
 
-aurap() {
-  aura -Ap $1 | view - +setf\ sh
+function aurap () {
+  aura -Ap "$1" | view - +setf\ sh
 }
 
-[ -f $HOME/git/rails_completion/rails.bash ] && . $HOME/git/rails_completion/rails.bash
+[ -f "$HOME/git/rails_completion/rails.bash" ] && . "$HOME/git/rails_completion/rails.bash"
 
 [ -r /usr/share/git/git-prompt.sh ] && . /usr/share/git/git-prompt.sh

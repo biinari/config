@@ -91,7 +91,7 @@ export CONFIG_PATH="${HOME}/code/v2/core"
 export GOPATH="${HOME}/code/go"
 #append_path "${GOPATH}/bin"
 gorun() {
-  "${GOPATH}/bin/${@}"
+  "${GOPATH}/bin/${*}"
 }
 _gorun_complete() {
   local cur=${COMP_WORDS[COMP_CWORD]}
