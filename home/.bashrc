@@ -54,12 +54,17 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 case "$TERM" in
 xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/^$HOME/~}\007"'
+    export ORIG_PROMPT_COMMAND="$PROMPT_COMMAND"
     ;;
 *)
     ;;
 esac
-title() {
-  PROMPT_COMMAND="echo -ne \"\033]0;$@ : \${PWD/\$HOME/~}\007\""
+function title () {
+    if [ $# -gt 0 ]; then
+        PROMPT_COMMAND="echo -ne \"\033]0;$* : \${PWD/\$HOME/~}\007\""
+    else
+        PROMPT_COMMAND="$ORIG_PROMPT_COMMAND"
+    fi
 }
 
 # enable color support of ls and also add handy aliases
