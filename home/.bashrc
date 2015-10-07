@@ -162,6 +162,14 @@ alias bundle4="bundle -j4; echo a | bundle exec rake rails:update:bin"
 alias sshops="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias scpops="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
+function v2_out_of_date () {
+  ENVIRONMENT=${ENVIRONMENT:-$1}
+  (
+    cd ~/v2/tools
+    bin/tools deploys:current_sha all "${ENVIRONMENT}" | grep 'out of date' | sed 's/^.*\(https.*\)$/\1/' | sort | uniq | xargs google-chrome
+  )
+}
+
 alias honeybadgerkeys="(cd ~/v2 ; for i in * ; do [ -f \$i/config/initializers/honeybadger.rb ] && (echo -n \"\$i \" && grep api_key \$i/config/initializers/honeybadger.rb) | awk '{ print \$4 \" \" \$1 }' ; done) | sort"
 
 alias bofh="telnet towel.blinkenlights.nl 666"
