@@ -191,6 +191,36 @@ v2_out_of_date() {
   )
 }
 
+v2_action_from_dir() {
+  action=$1
+  process=$2
+  dir=$(basename "$(pwd)")
+  if [ -n "$process" ] ; then
+    unit="fatsoma-development-$dir-$process.service"
+  else
+    unit="fatsoma-$dir.target"
+  fi
+  case "${dir%%-*}" in
+    service|user|api)
+      sudo systemctl "$action" "$unit"
+      ;;
+    *)
+      echo "Unknown service in ${dir}"
+      exit 1
+      ;;
+  esac
+}
+
+v2_start() {
+  v2_action_from_dir 'start' "$@"
+}
+v2_restart() {
+  v2_action_from_dir 'restart' "$@"
+}
+v2_stop() {
+  v2_action_from_dir 'stop' "$@"
+}
+
 honeybadgerkeys() {
   (
     cd ~/v2 || (echo could not find ~/v2 ; exit)
