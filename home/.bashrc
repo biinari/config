@@ -163,10 +163,14 @@ fi
 alias rdpcoda="xfreerdp -u 'codaagency\\fatsoma' -p '!f4ts0m4!' remote.codaagency.com"
 
 dual_monitor() {
-    side=${1:-left}
-    xrandr --output HDMI1 "--${side}-of" LVDS1 --auto
+    local otherscreen=${1:-VGA1} # or commonly HDMI1
+    local side=${2:-left}
+    xrandr --output "${otherscreen}" "--${side}-of" LVDS1 --auto
 }
-alias single_monitor="xrandr --output HDMI1 --off"
+single_monitor() {
+    local otherscreen=${1:-VGA1} # or commonly HDMI1
+    xrandr --output "${otherscreen}" --off
+}
 
 alias be="bundle exec"
 alias bundleinstall="bundle install -j4 --binstubs .bundle/bin --path vendor/bundle"
