@@ -40,3 +40,8 @@
   prompt = false
 [merge]
   tool = gvimdiff
+  conflictStyle = diff3
+[mergetool]
+  prompt = false
+[mergetool "gvimdiff"]
+  trustExitCode
