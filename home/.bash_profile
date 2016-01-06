@@ -2,7 +2,7 @@
 # ~/.bash_profile
 
 # shellcheck disable=SC2086
-function append_path() {
+append_path() {
     append=$1
     var=${2:-PATH}
     if [ -z "${!var}" ]; then
@@ -12,7 +12,7 @@ function append_path() {
     fi
 }
 # shellcheck disable=SC2086
-function prepend_path() {
+prepend_path() {
     prepend=$1
     var=${2:-PATH}
     if [ -z ${!var} ]; then

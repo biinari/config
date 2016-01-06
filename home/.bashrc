@@ -60,7 +60,7 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-function title () {
+title() {
     if [ $# -gt 0 ]; then
         PROMPT_COMMAND="echo -ne \"\033]0;$* : \${PWD/\$HOME/~}\007\""
     else
@@ -136,14 +136,14 @@ alias jslint='jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.co
 alias jslintr='find . -name "*.js" -not -name "*.min.*" -not -path "*/vendor/*" -exec jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -process \{\} \;'
 
 csslint_ignores='--ignore=adjoining-classes,overqualified-elements,ids,qualified-headings,unique-headings'
-function csslint_error () {
+csslint_error() {
     # shellcheck disable=SC2048 disable=2086
     /usr/bin/csslint --quiet --format=compact ${csslint_ignores} $* | grep -v "\(Warning\|Is the file empty\|^$\)"
 }
 # shellcheck disable=SC2139
 alias csslintr="find . -name '*.css' -exec csslint --quiet --format=compact ${csslint_ignores} \{\} \; | grep -v '\(Warning\|Is the file empty\|^$\)'"
 
-function phplintr () {
+phplintr() {
     output=$(find . -name "*.php" -exec php -n -l \{\} \;)
     status=$?
     echo "$output" | grep -v "^No syntax errors detected in"
@@ -158,7 +158,7 @@ fi
 
 alias rdpcoda="xfreerdp -u 'codaagency\\fatsoma' -p '!f4ts0m4!' remote.codaagency.com"
 
-function dual_monitor () {
+dual_monitor() {
     side=${1:-left}
     xrandr --output HDMI1 "--${side}-of" LVDS1 --auto
 }
@@ -172,7 +172,7 @@ alias sshops="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias scpops="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias v2_flood_create_event="gatling -sf \${HOME}/v2/v2-load-tests/simulations -s CreateEventSimulation | grep -A1 'EVENT VANITY NAME' | tail -n 1"
 
-function v2_out_of_date () {
+v2_out_of_date() {
   ENVIRONMENT=${ENVIRONMENT:-$1}
   (
     cd ~/v2/tools || (echo could not find ~/v2/tools ; exit)
@@ -180,7 +180,7 @@ function v2_out_of_date () {
   )
 }
 
-function honeybadgerkeys () {
+honeybadgerkeys() {
   (
     cd ~/v2 || (echo could not find ~/v2 ; exit)
     for app in * ; do
@@ -194,7 +194,7 @@ alias starwars="telnet towel.blinkenlights.nl"
 
 alias curlmyip="curl wtfismyip.com/text"
 
-function man () {
+man() {
     # mb - begin blinking
     # md - begin bold
     # me - end mode
@@ -224,12 +224,12 @@ alias ipython2='ipython2 --no-confirm-exit'
 
 alias heroku_apps='heroku apps | grep -v "^\(===\|$\)" | cut -d" " -f1'
 
-function EC () {
+EC() {
   echo -e "\e[1;33mcode $?\e[m"
 }
 trap EC ERR
 
-function aurap () {
+aurap() {
   aura -Ap "$1" | view - +setf\ sh
 }
 
