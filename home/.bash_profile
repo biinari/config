@@ -77,9 +77,10 @@ export CONFIG_PATH="${HOME}/code/v2/core"
 
 # Go language
 export GOPATH="${HOME}/code/go"
-#append_path "${GOPATH}/bin"
+append_path "${GOPATH}/bin"
 gorun() {
-  "${GOPATH}/bin/${*}"
+  # shellcheck disable=SC2086
+  "${GOPATH}"/bin/${*}
 }
 # shellcheck disable=2086
 _gorun_complete() {
