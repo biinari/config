@@ -35,6 +35,7 @@
 [diff]
   tool = gvimdiff
   mnemonicPrefix = true
+  renames = copies
 [difftool]
   prompt = false
 [merge]
