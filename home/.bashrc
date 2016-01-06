@@ -221,6 +221,8 @@ v2_stop() {
   v2_action_from_dir 'stop' "$@"
 }
 
+alias kitchen='bundle _1.10.5_ exec kitchen'
+
 honeybadgerkeys() {
   (
     cd ~/v2 || (echo could not find ~/v2 ; exit)
