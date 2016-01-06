@@ -12,6 +12,9 @@ fi
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Disable history expansion as it messes with ! in an interactive session
+set +H
+
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
