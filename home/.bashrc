@@ -218,7 +218,7 @@ v2_stop() {
   v2_action_from_dir 'stop' "$@"
 }
 
-alias kitchen='bundle _1.10.5_ exec kitchen'
+alias kitchen='RBENV_VERSION=2.3.1 bundle exec kitchen'
 
 honeybadgerkeys() {
   (
