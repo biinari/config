@@ -255,7 +255,6 @@ man() {
 
 alias ri='/usr/bin/ri -d /home/bill/.rbenv/versions/2.0.0-p247/share/ri/2.0.0/system'
 alias railspry="rails r \"require 'pry'; pry\""
-alias rubocop='RBENV_VERSION=2.1.6 BUNDLE_GEMFILE=/home/bill/git/rubocop/Gemfile bundle exec /home/bill/git/rubocop/bin/rubocop'
 alias transpec='RBENV_VERSION=system transpec'
 alias rubymri_lintr="find . -name '*.rb' -not -path '*/generators/*/templates/*' -not -path '*/vendor/*' -exec ruby -W1 -T1 -c \{\} \; | grep -v 'Syntax OK'"
 alias pylint='pylint --rcfile=/home/bill/.pylintrc'
