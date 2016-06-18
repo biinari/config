@@ -261,6 +261,7 @@ alias pylint='pylint --rcfile=/home/bill/.pylintrc'
 alias phpcs='phpcs -s --tab-width=4'
 alias ipython2='ipython2 --no-confirm-exit'
 
+alias heroku='RBENV_VERSION=system heroku'
 alias heroku_apps='heroku apps | grep -v "^\(===\|$\)" | cut -d" " -f1'
 
 EC() {
