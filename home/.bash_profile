@@ -68,7 +68,6 @@ if [ -d "$PLATFORMCORE" ]; then
 fi
 
 eval "$(rbenv init -)"
-export PATH="./bin:${PATH}"
 
 export AWS_CONFIG_FILE="${HOME}/.aws/config"
 
