@@ -264,6 +264,8 @@ alias ipython2='ipython2 --no-confirm-exit'
 alias heroku='RBENV_VERSION=system heroku'
 alias heroku_apps='heroku apps | grep -v "^\(===\|$\)" | cut -d" " -f1'
 
+alias tools='bin/tools'
+
 EC() {
   echo -e "\e[1;33mcode $?\e[m"
 }
