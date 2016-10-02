@@ -275,6 +275,33 @@ aurap() {
   aura -Ap "$1" | view - +setf\ sh
 }
 
+homestore() {
+  [ -n "$1" ] || (echo 'no directory argument given' ; exit 1)
+  local name="${1%/}"
+  local homedir="${HOME}/${name}"
+  local storedir="/store${homedir}"
+  if [ -e "${storedir}" ]; then
+    if [ -L "${homedir}" ]; then
+      echo 'Already set up'
+      exit 0
+    else
+      if [ -e "${homedir}" ]; then
+        echo 'Store and home entries both exist. Resolve this manually'
+        exit 1
+      else
+        ln -sn "${storedir}" "${homedir}"
+      fi
+    fi
+  else
+    if [ -d "${homedir}" ] || [ -f "${homedir}" ]; then
+      mv "${homedir}" "${storedir}"
+    else
+      mkdir "${storedir}"
+    fi && \
+      ln -sn "${storedir}" "${homedir}"
+  fi
+}
+
 # shellcheck disable=1090
 [ -f "$HOME/git/rails_completion/rails.bash" ] && . "$HOME/git/rails_completion/rails.bash"
 
