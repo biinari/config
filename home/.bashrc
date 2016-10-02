@@ -303,6 +303,8 @@ homestore() {
 }
 alias find_nonlinks='find . -mindepth 1 -maxdepth 1 -not -type l -print0 | sed -z '\''s;^\./;;'\'' | xargs -0 ls --color -d'
 
+alias rsync_transfer='rsync --exclude=.git --exclude=.svn -alvz --progress'
+
 # shellcheck disable=1090
 [ -f "$HOME/git/rails_completion/rails.bash" ] && . "$HOME/git/rails_completion/rails.bash"
 
