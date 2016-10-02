@@ -184,7 +184,7 @@ v2_out_of_date() {
   ENVIRONMENT=${ENVIRONMENT:-$1}
   (
     cd ~/v2/tools || (echo could not find ~/v2/tools ; exit)
-    bin/tools deploys:current_sha all "${ENVIRONMENT}" | grep 'out of date' | sed 's/^.*\(https.*\)$/\1/' | sort | uniq | xargs google-chrome
+    bin/tools deploys:current_sha all "${ENVIRONMENT}" | grep 'out of date' | sed 's/^.*\(https.*\)$/\1/' | sort | uniq | xargs chromium
   )
 }
 
