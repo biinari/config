@@ -72,7 +72,7 @@ eval "$(rbenv init -)"
 export AWS_CONFIG_FILE="${HOME}/.aws/config"
 
 # Fatsoma v2 config
-export CONFIG_PATH="${HOME}/code/v2/core"
+export CONFIG_PATH="${HOME}/code/v2/fatsoma-settings"
 
 # Go language
 export GOPATH="${HOME}/code/go"
