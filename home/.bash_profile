@@ -93,6 +93,8 @@ complete -F _gorun_complete gorun
 
 export GATLING_HOME=/home/bill/Downloads/gatling/gatling-charts-highcharts-bundle-2.1.7
 
+export NO_AT_BRIDGE=1
+
 # Only run these on interactive shells
 if tty -s ; then
     # shellcheck disable=2046
