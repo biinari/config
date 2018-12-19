@@ -62,11 +62,6 @@ export EC2_URL=https://ec2.eu-west-1.amazonaws.com
 
 #export TZ="Europe/London"
 
-## PLATFORM
-export PLATFORMCORE="${HOME}/code/svn/fatsoma/platformcore/trunk/"
-if [ -d "$PLATFORMCORE" ]; then
-	prepend_path "${PLATFORMCORE}shell/bin"
-fi
 
 eval "$(rbenv init -)"
 
