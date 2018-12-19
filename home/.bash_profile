@@ -74,6 +74,7 @@ export AWS_CONFIG_FILE="${HOME}/.aws/config"
 
 # Fatsoma v2 config
 export CONFIG_PATH="${HOME}/code/v2/fatsoma-settings"
+export OPSCODE_USER=bill
 
 # Go language
 export GOPATH="${HOME}/code/go"
