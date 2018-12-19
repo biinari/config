@@ -102,7 +102,4 @@ export CHECKPOINT_DISABLE=1
 if tty -s ; then
     # shellcheck disable=2046
     eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)
-
-    # hub makes git prompt slower, and I can't be bothered tweaking those scripts
-    #eval "$(hub alias -s)"
 fi
