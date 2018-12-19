@@ -78,6 +78,7 @@ export OPSCODE_USER=bill
 
 # Go language
 export GOPATH="${HOME}/code/go"
+export GOBIN="${GOPATH}/bin"
 append_path "${GOPATH}/bin"
 gorun() {
   # shellcheck disable=SC2086
