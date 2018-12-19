@@ -95,6 +95,9 @@ export GATLING_HOME=/home/bill/Downloads/gatling/gatling-charts-highcharts-bundl
 
 export NO_AT_BRIDGE=1
 
+# Disable HashiCorp Checkpoint call-home
+export CHECKPOINT_DISABLE=1
+
 # Only run these on interactive shells
 if tty -s ; then
     # shellcheck disable=2046
