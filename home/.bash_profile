@@ -62,8 +62,7 @@ export EC2_URL=https://ec2.eu-west-1.amazonaws.com
 
 #export TZ="Europe/London"
 
-
-eval "$(rbenv init -)"
+eval "$(rbenv init - --no-rehash)"
 
 export AWS_CONFIG_FILE="${HOME}/.aws/config"
 
