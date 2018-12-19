@@ -101,7 +101,7 @@ export CHECKPOINT_DISABLE=1
 # Only run these on interactive shells
 if tty -s ; then
     # shellcheck disable=2046
-    eval $(keychain --eval --agents ssh -Q --quiet id_rsa ~/code/fatsoma/deployment_and_provisioning/keys/deploy_id_rsa ~/.ssh/bill_fatsoma.pem ~/code/v2/chef/.chef/fatsoma-staging.pem ~/code/v2/chef/.chef/fatsoma-preview.pem ~/code/v2/chef/.chef/fatsoma-production.pem)
+    eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)
 
     # hub makes git prompt slower, and I can't be bothered tweaking those scripts
     #eval "$(hub alias -s)"
