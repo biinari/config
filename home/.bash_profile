@@ -37,7 +37,7 @@ fi
 #prepend_path "$HOME/.cabal/bin"
 
 # Add Ruby gems path
-append_path "$HOME/.gem/ruby/2.1.0/bin"
+append_path "$HOME/.gem/ruby/2.4.0/bin"
 
 # Add Heroku path
 prepend_path "/usr/local/heroku/bin"
