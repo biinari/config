@@ -16,6 +16,7 @@ fi
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
+alias history_null='export HISTFILE=/dev/null'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
