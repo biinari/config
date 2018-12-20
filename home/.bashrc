@@ -319,6 +319,10 @@ duh() {
   du -had1 "$@" | sort -h
 }
 
+ifind() {
+  find . -iname "*$**"
+}
+
 # shellcheck disable=1090
 [ -f "$HOME/git/rails_completion/rails.bash" ] && . "$HOME/git/rails_completion/rails.bash"
 
