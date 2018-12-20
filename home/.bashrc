@@ -281,18 +281,18 @@ aurap() {
 }
 
 homestore() {
-  [ -n "$1" ] || (echo 'no directory argument given' ; exit 1)
+  [ -n "$1" ] || (echo 'no directory argument given' ; return 1)
   local name="${1%/}"
   local homedir="${HOME}/${name}"
   local storedir="/store${homedir}"
   if [ -e "${storedir}" ]; then
     if [ -L "${homedir}" ]; then
       echo 'Already set up'
-      exit 0
+      return 0
     else
       if [ -e "${homedir}" ]; then
         echo 'Store and home entries both exist. Resolve this manually'
-        exit 1
+        return 1
       else
         ln -sn "${storedir}" "${homedir}"
       fi
