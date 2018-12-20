@@ -56,3 +56,6 @@ tags
 
 # rotated logs
 log/*.log.*
+
+# Golang nested vendoring
+/vendor/**/vendor/
