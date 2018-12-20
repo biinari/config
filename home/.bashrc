@@ -126,7 +126,7 @@ alias svnmergesplitcoda='svn merge ^/platform/branches/split/projects/coda/coda'
 alias gitvimdiff="GIT_PAGER= GIT_EXTERNAL_DIFF=gitvimdiffwrap git diff"
 
 alias grepplatform="grep -I --color=auto --exclude='*.svn-base' --exclude='*.swp' --exclude-dir='codapreview' --exclude-dir='.svn'"
-alias sedgrepfile="sed 's/^\([^:]*\):.*$/\1/' | sort | uniq"
+alias sedgrepfile="sed 's/^\\([^:]*\\):.*\$/\\1/' | sort -u"
 
 alias findlarge='du -shx .* * --exclude="." --exclude=".." | grep "^[0-9.]*[MG]"'
 
