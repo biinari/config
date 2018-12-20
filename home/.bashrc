@@ -315,6 +315,10 @@ alias nvidia-settings='optirun -b none nvidia-settings -c :8'
 alias auraAu='sudo aura -Akau -x --build=/home/bill/tmp/aur'
 alias auraSyu='sudo aura -Syu'
 
+duh() {
+  du -had1 "$@" | sort -h
+}
+
 # shellcheck disable=1090
 [ -f "$HOME/git/rails_completion/rails.bash" ] && . "$HOME/git/rails_completion/rails.bash"
 
