@@ -38,14 +38,16 @@ fi
 
 if [ -n "$DESKTOP_SESSION" ]; then
     user_host='\u'
+    title_user_host="${USER}"
 else
     user_host='\u@\h'
+    title_user_host="${USER}@${HOSTNAME}"
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1="\[\033[01;32m\]${user_host}\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;36m\]\$(__git_ps1 ' %s')\[\033[00m\]\$ "
+    PS1='\[\033[01;32m\]'${user_host}'\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;36m\]$(__git_ps1 " %s")\[\033[00m\]$ '
 else
-    PS1="${user_host}:\W\$(__git_ps1 ' %s')\$ "
+    PS1='${user_host}:\W$(__git_ps1 " %s")$ '
 fi
 unset color_prompt user_host
 
@@ -55,7 +57,8 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/^$HOME/~}\007"'
+    #PROMPT_COMMAND='echo -ne "\033]0;${title_user_host}: ${PWD/#$HOME/\~}\007"'
+    PROMPT_COMMAND='echo -ne "\033]0;${title_user_host}: $([ "$PWD" = "$HOME" ] && echo \~ || basename "$PWD")\007"'
     export ORIG_PROMPT_COMMAND="$PROMPT_COMMAND"
     ;;
 *)
