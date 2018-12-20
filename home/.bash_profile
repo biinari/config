@@ -81,6 +81,7 @@ gorun() {
 # shellcheck disable=2086
 _gorun_complete() {
   local cur=${COMP_WORDS[COMP_CWORD]}
+  # shellcheck disable=2207
   COMPREPLY=( $(compgen -W "$(ls "${GOPATH}/bin/")" -- $cur) )
 }
 complete -F _gorun_complete gorun
