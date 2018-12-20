@@ -79,6 +79,8 @@ alias fgrep="fgrep -I ${grep_excludes}"
 alias egrep="egrep -I ${grep_excludes}"
 # shellcheck disable=SC2139
 alias grepui="grep -I ${grep_excludes} --exclude-dir=public --exclude-dir=tmp"
+# shellcheck disable=SC2139
+alias greps="grep -I ${grep_excludes} --exclude-dir=spec --exclude='*_test.go'"
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     [ -e "$HOME/.dir_colors" ] && DIR_COLORS="$HOME/.dir_colors"
     [ -e "$DIR_COLORS" ] || DIR_COLORS=""
