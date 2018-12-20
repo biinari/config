@@ -183,8 +183,8 @@ alias grep_chef_attributes_dot_syntax="grep -RP '(?<!['\\''/\"])\\b(?!node\\.nam
 v2_out_of_date() {
   ENVIRONMENT=${ENVIRONMENT:-$1}
   (
-    cd ~/v2/tools || (echo could not find ~/v2/tools ; exit)
-    bin/tools deploys:current_sha all "${ENVIRONMENT}" | grep 'out of date' | sed 's/^.*\(https.*\)$/\1/' | sort | uniq | xargs chromium
+    cd ~/v2/tools || (echo could not find ~/v2/tools ; return 1)
+    bin/tools deploys:current_sha all "${ENVIRONMENT}" | grep 'out of date' | sed 's/^.*\(https.*\)$/\1/' | sort -u # | xargs -n1 firefox &>/dev/null &
   )
 }
 
