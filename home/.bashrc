@@ -225,7 +225,7 @@ alias kitchen='RBENV_VERSION=2.3.1 bundle exec kitchen'
 
 honeybadgerkeys() {
   (
-    cd ~/v2 || (echo could not find ~/v2 ; exit)
+    cd ~/v2 || (echo could not find ~/v2 ; return 1)
     for app in * ; do
       [ -f "$app/config/honeybadger.yml" ] && (echo -n "$app " && grep api_key "$app/config/honeybadger.yml") | awk '{ print $3 " " $1 }'
     done
