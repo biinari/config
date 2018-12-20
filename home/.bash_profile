@@ -86,7 +86,8 @@ _gorun_complete() {
 }
 complete -F _gorun_complete gorun
 
-export GATLING_HOME=/home/bill/Downloads/gatling/gatling-charts-highcharts-bundle-2.1.7
+export GATLING_HOME=/home/bill/Downloads/gatling/gatling-charts-highcharts-bundle-2.2.5
+#export GATLING_HOME=/home/bill/.ivy2/local/io.gatling.highcharts/gatling-charts-highcharts-bundle/2.2.5/zips/gatling-charts-highcharts-bundle-2.2.5
 
 export NO_AT_BRIDGE=1
 
