@@ -93,7 +93,7 @@ export NO_AT_BRIDGE=1
 export CHECKPOINT_DISABLE=1
 
 # Only run these on interactive shells
-if tty -s ; then
-    # shellcheck disable=2046
-    eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)
-fi
+#if tty -s ; then
+#    # shellcheck disable=2046
+#    eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)
+#fi
