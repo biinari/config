@@ -259,7 +259,7 @@ man() {
 alias ri='/usr/bin/ri -d /home/bill/.rbenv/versions/2.0.0-p247/share/ri/2.0.0/system -d /home/bill/.rbenv/versions/2.3.1/share/ri/2.3.0/system'
 alias railspry="rails r \"require 'pry'; pry\""
 alias transpec='RBENV_VERSION=system transpec'
-alias rubymri_lintr="find . -name '*.rb' -not -path '*/generators/*/templates/*' -not -path '*/vendor/*' -exec ruby -W1 -T1 -c \{\} \; | grep -v 'Syntax OK'"
+alias rubymri_lintr="find . -name '*.rb' -not -path '*/generators/*/templates/*' -not -path '*/vendor/*' -exec ruby -W1 -T1 -c \\{\\} \\; | grep -v 'Syntax OK'"
 alias pylint='pylint --rcfile=/home/bill/.pylintrc'
 alias phpcs='phpcs -s --tab-width=4'
 alias ipython2='ipython2 --no-confirm-exit'
