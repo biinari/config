@@ -141,10 +141,10 @@ alias jslintr='find . -name "*.js" -not -name "*.min.*" -not -path "*/vendor/*" 
 csslint_ignores='--ignore=adjoining-classes,overqualified-elements,ids,qualified-headings,unique-headings'
 csslint_error() {
     # shellcheck disable=SC2048 disable=2086
-    /usr/bin/csslint --quiet --format=compact ${csslint_ignores} $* | grep -v "\(Warning\|Is the file empty\|^$\)"
+    /usr/bin/csslint --quiet --format=compact ${csslint_ignores} $* | grep -v '\(Warning\|Is the file empty\|^$\)'
 }
 # shellcheck disable=SC2139
-alias csslintr="find . -name '*.css' -exec csslint --quiet --format=compact ${csslint_ignores} \{\} \; | grep -v '\(Warning\|Is the file empty\|^$\)'"
+alias csslintr="find . -name '*.css' -exec csslint --quiet --format=compact ${csslint_ignores} \\{\\} \\; | grep -v '\\(Warning\\|Is the file empty\\|^\$\\)'"
 
 phplintr() {
     output=$(find . -name "*.php" -exec php -n -l \{\} \;)
