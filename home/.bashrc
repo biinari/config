@@ -191,19 +191,19 @@ v2_out_of_date() {
 v2_action_from_dir() {
   action=$1
   process=$2
-  dir=$(basename "$(pwd)")
+  dir=$(basename "$(pwd)" | sed 's/^v2-//')
   if [ -n "$process" ] ; then
     unit="fatsoma-development-$dir-$process.service"
   else
     unit="fatsoma-$dir.target"
   fi
   case "${dir%%-*}" in
-    service|user|api)
+    service|user|api|explore)
       sudo systemctl "$action" "$unit"
       ;;
     *)
       echo "Unknown service in ${dir}"
-      exit 1
+      return 1
       ;;
   esac
 }
