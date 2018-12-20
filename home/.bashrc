@@ -323,6 +323,13 @@ ifind() {
   find . -iname "*$**"
 }
 
+databagedit() {
+  knife data bag edit --secret-file .chef/fatsoma_secret_key "$1" "$2"
+}
+databagshow() {
+  knife data bag show --secret-file .chef/fatsoma_secret_key -F json "$1" "$2" | view - '+setf json'
+}
+
 # shellcheck disable=1090
 [ -f "$HOME/git/rails_completion/rails.bash" ] && . "$HOME/git/rails_completion/rails.bash"
 
