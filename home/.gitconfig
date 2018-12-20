@@ -29,6 +29,9 @@
   syntax = ! bundle exec rake -f `bundle show fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:syntax_checkers:all
   syntaxruby = ! bundle exec rake -f `bundle show fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:syntax_checkers:ruby
   syntaxjs = ! bundle exec rake -f `bundle show fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:syntax_checkers:js
+  vuln = ! bundle exec rake -f `bundle show fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:vulnerability_scanners:all
+  vulnbundle = ! bundle exec rake -f `bundle show fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:vulnerability_scanners:bundler_audit
+  vulnbrakeman = ! bundle exec rake -f `bundle show fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:vulnerability_scanners:brakeman
   sed = ! git grep -z --full-name -l '.' | xargs -0 sed -i -e
   aliases = ! git config -l | grep alias | cut -c 7-
 [diff]
