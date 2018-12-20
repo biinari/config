@@ -154,9 +154,9 @@ phplintr() {
 }
 
 if [ -f /usr/share/dict/words ]; then
-    alias apg='apg -a1 -m5 -x10 -n1 -MNCL -r/usr/share/dict/words'
+    alias apg='apg -a1 -m5 -x10 -n1 -MNCLS -r/usr/share/dict/words'
 else
-    alias apg='apg -a1 -m5 -x10 -n1 -MNCL'
+    alias apg='apg -a1 -m5 -x10 -n1 -MNCLS'
 fi
 
 alias rdpcoda="xfreerdp -u 'codaagency\\fatsoma' -p '!f4ts0m4!' remote.codaagency.com"
