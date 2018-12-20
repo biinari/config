@@ -217,6 +217,9 @@ v2_restart() {
 v2_stop() {
   v2_action_from_dir 'stop' "$@"
 }
+v2_status() {
+  v2_action_from_dir 'status' "$@"
+}
 
 alias kitchen='RBENV_VERSION=2.3.1 bundle exec kitchen'
 
