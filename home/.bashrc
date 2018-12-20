@@ -261,7 +261,7 @@ alias railspry="rails r \"require 'pry'; pry\""
 alias transpec='RBENV_VERSION=system transpec'
 alias rubymri_lintr="find . -name '*.rb' -not -path '*/generators/*/templates/*' -not -path '*/vendor/*' -exec ruby -W1 -T1 -c \\{\\} \\; | grep -v 'Syntax OK'"
 alias pylint='pylint --rcfile=/home/bill/.pylintrc'
-alias phpcs='phpcs -s --tab-width=4'
+alias phpcs='phpcs -s --tab-width=4 --colors --report=full'
 alias ipython2='ipython2 --no-confirm-exit'
 
 alias heroku='RBENV_VERSION=system heroku'
