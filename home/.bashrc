@@ -172,8 +172,7 @@ single_monitor() {
 }
 
 alias be="bundle exec"
-alias bundleinstall="bundle install -j4 --binstubs .bundle/bin --path vendor/bundle"
-alias bundlev2="bundle install -j4 --binstubs .bundle/bin --path /home/bill/v2/vendor/\$(basename \$(pwd) | sed 's/v2-//')/bundle"
+alias bundleinstall="bundle install -j4 --binstubs .bundle/bin"
 alias bundle4="bundle -j4; echo a | bundle exec rake rails:update:bin"
 alias sshops="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias scpops="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
