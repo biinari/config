@@ -178,6 +178,8 @@ alias sshops="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias scpops="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias v2_flood_create_event="gatling -sf \${HOME}/v2/v2-load-tests/simulations -s CreateEventSimulation | grep -A1 'EVENT VANITY NAME' | tail -n 1"
 
+alias grep_chef_attributes_dot_syntax="grep -RP '(?<!['\\''/\"])\\b(?!node\\.name)(node|(force_)?(default|override)|normal|automatic|set(_unless)?)\\b\\.(?!((force_)?(default|override)|normal|automatic|set(_unless)?|to_[ahis]|tr|g?sub|(chef_)?environment|run_state|recipes|fetch|inspect|each|map|join)\\b|\\w+\\?)'"
+
 v2_out_of_date() {
   ENVIRONMENT=${ENVIRONMENT:-$1}
   (
