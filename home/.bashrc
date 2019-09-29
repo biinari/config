@@ -130,7 +130,7 @@ alias sedgrepfile="sed 's/^\\([^:]*\\):.*\$/\\1/' | sort -u"
 
 alias findlarge='du -shx .* * --exclude="." --exclude=".." | grep "^[0-9.]*[MG]"'
 
-alias find_wcount='find . -path \*.svn\* -prune -o -path \*.git\* -prune -o -regex ".*\.\(php\|css\|s[ac]ss\|js\|cs\|coffee\|rb\|rake\|py\|sh\)" -type f'
+alias find_wcount='find . -path \*.svn\* -prune -o -path \*.git\* -prune -o -path \*vendor\* -prune -o -regex ".*\.\(php\|css\|s[ac]ss\|js\|cs\|coffee\|rb\|rake\|py\|sh\)" -type f'
 alias wcrl='find_wcount -exec wc -l \{\} \+'
 alias wcrc='find_wcount -exec wc -c \{\} \+'
 alias wcrw='find_wcount -exec wc -w \{\} \+'
