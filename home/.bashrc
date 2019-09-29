@@ -282,7 +282,7 @@ alias heroku_apps='heroku apps | grep -v "^\(===\|$\)" | cut -d" " -f1'
 
 alias tools='bin/tools'
 
-alias circleci_v2_build='circleci build -v ~/v2/circleci/ssh:/home/circleci/.ssh -v ~/v2/circleci/artifacts:/tmp/artifacts -v circleci_vendor:/home/circleci/vendor'
+alias circleci_v2_build='circleci local execute -v ~/v2/circleci/ssh:/home/circleci/.ssh -v ~/v2/circleci/artifacts:/tmp/artifacts -v circleci_vendor:/home/circleci/vendor'
 
 EC() {
   echo -e "\\e[1;33mcode $?\\e[m"
