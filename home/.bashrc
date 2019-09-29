@@ -330,6 +330,8 @@ alias auraSyu='sudo aura -Syu'
 
 alias nets='sudo netstat -tulpn'
 
+alias uuid='/usr/bin/uuid'
+
 duh() {
   du -had1 "$@" | sort -h
 }
