@@ -181,10 +181,10 @@ alias v2_flood_create_event="gatling -sf \${HOME}/v2/v2-load-tests/simulations -
 alias grep_chef_attributes_dot_syntax="grep -RP '(?<!['\\''/\"])\\b(?!node\\.name)(node|(force_)?(default|override)|normal|automatic|set(_unless)?)\\b\\.(?!((force_)?(default|override)|normal|automatic|set(_unless)?|to_[ahis]|tr|g?sub|(chef_)?environment|run_state|recipes|fetch|inspect|each|map|join)\\b|\\w+\\?)'"
 
 v2_out_of_date() {
-  ENVIRONMENT=${ENVIRONMENT:-$1}
+  local _env=$1
   (
     cd ~/v2/tools || (echo could not find ~/v2/tools ; return 1)
-    bin/tools deploys:current_sha all "${ENVIRONMENT}" | grep 'out of date' | sed 's/^.*\(https.*\)$/\1/' | sort -u # | xargs -n1 firefox &>/dev/null &
+    bin/tools deploys:current_sha all "${_env}" | grep 'out of date' | sed 's/^.*\(https.*\)$/\1/' | sort -u | xargs -n1 firefox &>/dev/null &
   )
 }
 
