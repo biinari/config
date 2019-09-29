@@ -227,6 +227,12 @@ v2_stop() {
 v2_status() {
   v2_action_from_dir 'status' "$@"
 }
+v2_enable() {
+  v2_action_from_dir 'enable' "$@"
+}
+v2_disable() {
+  v2_action_from_dir 'disable' "$@"
+}
 
 alias kitchen='RBENV_VERSION=2.3.1 bundle exec kitchen'
 
