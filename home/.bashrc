@@ -199,7 +199,14 @@ v2_action_from_dir() {
   fi
   case "${dir%%-*}" in
     service|user|api|explore)
-      sudo systemctl "$action" "$unit"
+      case "$action" in
+        status)
+          systemctl "$action" "$unit"
+          ;;
+        *)
+          sudo systemctl "$action" "$unit"
+          ;;
+      esac
       ;;
     *)
       echo "Unknown service in ${dir}"
