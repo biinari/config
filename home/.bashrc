@@ -332,6 +332,9 @@ alias nets='sudo netstat -tulpn'
 
 alias uuid='/usr/bin/uuid'
 
+# Use dynamic linking by default
+alias ghc='ghc -dynamic'
+
 duh() {
   du -had1 "$@" | sort -h
 }
