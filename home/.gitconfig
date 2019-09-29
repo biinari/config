@@ -35,15 +35,20 @@
   sed = ! git grep -z --full-name -l '.' | xargs -0 sed -i -e
   aliases = ! git config -l | grep alias | cut -c 7-
 [diff]
-  tool = gvimdiff
+  tool = nvimdiff
   mnemonicPrefix = true
   renames = copies
 [difftool]
   prompt = false
+[difftool "nvimdiff"]
+  cmd = "nvim-qt --nofork -- -d -R \"$LOCAL\" \"$REMOTE\""
 [merge]
-  tool = gvimdiff
+  tool = nvimdiff
   conflictStyle = diff3
 [mergetool]
   prompt = false
 [mergetool "gvimdiff"]
+  trustExitCode
+[mergetool "nvimdiff"]
+  cmd = "nvim-qt --nofork -- -d \"$LOCAL\" \"$BASE\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w|wincmd J' -c '35sleep m|wincmd ='"
   trustExitCode
