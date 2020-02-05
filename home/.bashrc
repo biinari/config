@@ -340,6 +340,8 @@ alias uuid='/usr/bin/uuid'
 # Use dynamic linking by default
 alias ghc='ghc -dynamic'
 
+alias make_test_richgo='make test | richgo testfilter'
+
 duh() {
   du -had1 "$@" | sort -h
 }
