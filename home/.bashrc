@@ -12,9 +12,8 @@ fi
 # If not running interactively, don't do anything
 [[ $- = *i* ]] || return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
-# ... and ignore same sucessive entries.
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
 export HISTCONTROL=ignoreboth
 alias history_null='export HISTFILE=/dev/null'
 
