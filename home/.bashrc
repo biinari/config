@@ -194,7 +194,7 @@ v2_out_of_date() {
 v2_action_from_dir() {
   action=$1
   process=$2
-  dir=$(basename "$(pwd)" | sed 's/^v2-//')
+  dir=$(basename "$PWD" | sed 's/^v2-//')
   if [ -n "$process" ] ; then
     unit="fatsoma-development-$dir-$process.service"
   else
