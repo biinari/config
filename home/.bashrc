@@ -358,6 +358,9 @@ databagshow() {
 }
 
 # shellcheck disable=1090
+[ ! -f "$GOPATH/src/github.com/fatsoma/v2-terraform-tools/bash_completions.sh" ] || . "$GOPATH/src/github.com/fatsoma/v2-terraform-tools/bash_completions.sh"
+
+# shellcheck disable=1090
 [ ! -f "$HOME/git/rails_completion/rails.bash" ] || . "$HOME/git/rails_completion/rails.bash"
 
 # shellcheck disable=1091
