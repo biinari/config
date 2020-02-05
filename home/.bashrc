@@ -76,7 +76,7 @@ title() {
 }
 
 # enable color support of ls and also add handy aliases
-grep_excludes='--exclude=".*.swp" --exclude-dir=.svn --exclude-dir=.git --exclude-dir=templates_c --exclude-dir=min --exclude=tags --exclude-dir=vendor --exclude-dir=.bundle --exclude=debug.log --exclude=blog-deleted.php --exclude-dir=blog --exclude-dir=log --exclude-dir=request_cache --exclude-dir=saved_pages --exclude-dir=coverage --exclude-dir=Godeps --exclude-dir=.terraform --exclude-dir="build" --exclude-dir=".idea" --exclude-dir=.kitchen'
+grep_excludes='--exclude=".*.swp" --exclude-dir=.svn --exclude-dir=.git --exclude-dir=templates_c --exclude-dir=min --exclude=tags --exclude-dir=vendor --exclude-dir=.bundle --exclude=debug.log --exclude=blog-deleted.php --exclude-dir=blog --exclude-dir=log --exclude-dir=request_cache --exclude-dir=saved_pages --exclude-dir=coverage --exclude-dir=Godeps --exclude-dir=.terraform --exclude-dir="build" --exclude-dir=".idea" --exclude-dir=.kitchen --exclude-dir=node_modules'
 # shellcheck disable=SC2139
 alias grep="grep -I ${grep_excludes}"
 # shellcheck disable=SC2139
