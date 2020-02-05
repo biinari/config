@@ -94,6 +94,7 @@ if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
     #alias dir='ls --color=auto --format=vertical'
     #alias vdir='ls --color=auto --format=long'
+    alias ip='ip --color=auto'
 
     # shellcheck disable=SC2139
     alias grep="grep -I --color=auto ${grep_excludes}"
