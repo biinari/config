@@ -10,7 +10,7 @@ if [ -f "$HOME/.bash_profile" ]; then
 fi
 
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+[[ $- = *i* ]] || return
 
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
@@ -23,7 +23,7 @@ alias history_null='export HISTFILE=/dev/null'
 shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+[ ! -x /usr/bin/lesspipe ] || eval "$(lesspipe)"
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
@@ -85,7 +85,7 @@ alias grepui="grep -I ${grep_excludes} --exclude-dir=public --exclude-dir=tmp"
 # shellcheck disable=SC2139
 alias greps="grep -I ${grep_excludes} --exclude-dir=spec --exclude='*_test.go'"
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
-    [ -e "$HOME/.dir_colors" ] && DIR_COLORS="$HOME/.dir_colors"
+    [ ! -e "$HOME/.dir_colors" ] || DIR_COLORS="$HOME/.dir_colors"
     [ -e "$DIR_COLORS" ] || DIR_COLORS=""
     eval "$(dircolors -b $DIR_COLORS)"
     alias ls='ls --color=auto'
@@ -351,7 +351,7 @@ databagshow() {
 }
 
 # shellcheck disable=1090
-[ -f "$HOME/git/rails_completion/rails.bash" ] && . "$HOME/git/rails_completion/rails.bash"
+[ ! -f "$HOME/git/rails_completion/rails.bash" ] || . "$HOME/git/rails_completion/rails.bash"
 
 # shellcheck disable=1091
-[ -r /usr/share/git/git-prompt.sh ] && . /usr/share/git/git-prompt.sh
+[ ! -r /usr/share/git/git-prompt.sh ] || . /usr/share/git/git-prompt.sh
