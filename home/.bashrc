@@ -126,10 +126,6 @@ alias svnwdiff="svn diff --diff-cmd=wdiffwrap -x -t"
 alias svnwdiffless="svn diff --diff-cmd=wdiffwrap -x -a"
 alias svnst='svn st | grep -v "^?.*\(cache\/\|resources\/\)"'
 
-alias svnmergecoda='svn merge ^/platform/trunk/projects/coda/coda ; svn revert --recursive lib/model/interface/'
-alias svnmergesplit='svn merge ^/platform/trunk/platform platform ; svn merge ^/platform/trunk/projects/coda/coda projects/coda/coda ; svn merge ^/platform/trunk/projects/coda/codapreview projects/coda/codapreview ; svn merge ^/platform/trunk/config.php config.php ; svn merge ^/platform/trunk/index.php index.php'
-alias svnmergesplitcoda='svn merge ^/platform/branches/split/projects/coda/coda'
-
 alias gitvimdiff="GIT_PAGER= GIT_EXTERNAL_DIFF=gitvimdiffwrap git diff"
 
 alias grepplatform="grep -I --color=auto --exclude='*.svn-base' --exclude='*.swp' --exclude-dir='codapreview' --exclude-dir='.svn'"
