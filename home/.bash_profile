@@ -60,6 +60,8 @@ export EC2_PRIVATE_KEY=~/.ec2/pk-bill_dvwiird.pem
 export EC2_CERT=~/.ec2/cert-bill_dvwiird.pem
 export EC2_URL=https://ec2.eu-west-1.amazonaws.com
 
+export VAULT_ADDR=http://127.0.0.1:8200
+
 #export TZ="Europe/London"
 
 eval "$(rbenv init - --no-rehash)"
