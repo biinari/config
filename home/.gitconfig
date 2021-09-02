@@ -36,7 +36,7 @@
   sed = ! git grep -z --full-name -l '.' | xargs -0 sed -i -e
   aliases = ! git config -l | grep alias | cut -c 7-
 [diff]
-  tool = nvimdiff
+  tool = gvimdiff
   mnemonicPrefix = true
   renames = copies
 [difftool]
@@ -44,7 +44,7 @@
 [difftool "nvimdiff"]
   cmd = "nvim-qt --nofork -- -d -R \"$LOCAL\" \"$REMOTE\""
 [merge]
-  tool = nvimdiff
+  tool = gvimdiff
   conflictStyle = diff3
 [mergetool]
   prompt = false
