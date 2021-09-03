@@ -76,7 +76,7 @@ export CONFIG_PATH="${HOME}/code/v2/fatsoma-settings"
 export OPSCODE_USER=bill
 
 # Go language
-export GOPATH="${HOME}/code/go"
+export GOPATH=$(realpath "${HOME}/code/go")
 export GOBIN="${GOPATH}/bin"
 append_path "${GOPATH}/bin"
 gorun() {
