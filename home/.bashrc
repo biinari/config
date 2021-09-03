@@ -28,7 +28,7 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ ! -x /usr/bin/lesspipe ] || eval "$(lesspipe)"
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
