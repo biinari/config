@@ -193,6 +193,12 @@ v2_out_of_date() {
   )
 }
 
+tf_current_sha() {
+  local _env=$1
+  local _group=$2
+  v2-terraform-tools aws ec2 current_sha -e "$_env" -g "$_group" | grep https | sed 's/^.*\(https.*\)$/\1/' | sort -u | xargs -n1 firefox &>/dev/null &
+}
+
 v2_action_from_dir() {
   action=$1
   process=$2
