@@ -183,6 +183,8 @@ alias v2_flood_create_event="gatling -sf \${HOME}/v2/v2-load-tests/simulations -
 
 alias grep_chef_attributes_dot_syntax="grep -RP '(?<!['\\''/\"])\\b(?!node\\.name)(node|(force_)?(default|override)|normal|automatic|set(_unless)?)\\b\\.(?!((force_)?(default|override)|normal|automatic|set(_unless)?|to_[ahis]|tr|g?sub|(chef_)?environment|run_state|recipes|fetch|inspect|each|map|join)\\b|\\w+\\?)'"
 
+export BUNDLE_BUILD__SASSC=--disable-lto # fix for sassc ~> 2.2.0 (where linux binaries no longer provided)
+
 v2_out_of_date() {
   local _env=$1
   (
