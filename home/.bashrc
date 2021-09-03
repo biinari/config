@@ -237,8 +237,6 @@ v2_disable() {
   v2_action_from_dir 'disable' "$@"
 }
 
-alias kitchen='RBENV_VERSION=2.3.1 bundle exec kitchen'
-
 honeybadgerkeys() {
   (
     cd ~/v2 || (echo could not find ~/v2 ; return 1)
