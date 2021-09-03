@@ -257,7 +257,7 @@ honeybadgerkeys() {
 alias bofh="telnet towel.blinkenlights.nl 666"
 alias starwars="telnet towel.blinkenlights.nl"
 
-alias curlmyip="curl https://wtfismyip.com/text"
+alias curlmyip="curl https://ipv4.wtfismyip.com/text"
 
 man() {
     # mb - begin blinking
