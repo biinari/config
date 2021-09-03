@@ -53,3 +53,7 @@
 [mergetool "nvimdiff"]
   cmd = "nvim-qt --nofork -- -d \"$LOCAL\" \"$BASE\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w|wincmd J' -c '35sleep m|wincmd ='"
   trustExitCode
+[credential]
+	username = biinari
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
