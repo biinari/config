@@ -45,6 +45,8 @@ prepend_path "/usr/local/heroku/bin"
 # Add home bin to path
 append_path "$HOME/bin"
 
+append_path "$HOME/.local/bin"
+
 export VISUAL="vim"
 export EDITOR="vim"
 export LANGUAGE="en_GB:en"
