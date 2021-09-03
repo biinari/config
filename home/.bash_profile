@@ -66,6 +66,7 @@ export VAULT_ADDR=http://127.0.0.1:8200
 
 #export TZ="Europe/London"
 
+prepend_path "$HOME/.rbenv/bin"
 eval "$(rbenv init - --no-rehash)"
 
 export AWS_CONFIG_FILE="${HOME}/.aws/config"
