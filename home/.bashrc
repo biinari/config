@@ -208,6 +208,9 @@ v2_action_from_dir() {
         status)
           systemctl "$action" "$unit"
           ;;
+        log)
+          journalctl -u "$unit"
+          ;;
         *)
           sudo systemctl "$action" "$unit"
           ;;
@@ -237,6 +240,9 @@ v2_enable() {
 }
 v2_disable() {
   v2_action_from_dir 'disable' "$@"
+}
+v2_log() {
+  v2_action_from_dir 'log' "$@"
 }
 
 honeybadgerkeys() {
