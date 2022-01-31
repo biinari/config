@@ -135,6 +135,19 @@ alias sedgrepfile="sed 's/^\\([^:]*\\):.*\$/\\1/' | sort -u"
 
 alias findlarge='du -shx .* * --exclude="." --exclude=".." | grep "^[0-9.]*[MG]"'
 
+gvimdiffr() {
+  local left_dir=$1
+  local right_dir=$2
+
+  diff -rq "$left_dir" "$right_dir" |\
+    grep '^Files' | sed 's/^Files \(.*\) differ$/\1/' |\
+    while read -r line; do
+      left=${line%% and *}
+      right=${line#* and }
+      gvimdiff -f "$left" "$right"
+    done
+}
+
 alias find_wcount='find . -path \*.svn\* -prune -o -path \*.git\* -prune -o -path \*vendor\* -prune -o -regex ".*\.\(php\|css\|s[ac]ss\|js\|cs\|coffee\|rb\|rake\|py\|sh\)" -type f'
 alias wcrl='find_wcount -exec wc -l \{\} \+'
 alias wcrc='find_wcount -exec wc -c \{\} \+'
