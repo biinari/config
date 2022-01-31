@@ -19,8 +19,6 @@
   list = ls-tree --name-only HEAD:
   ls = ls-tree --name-only HEAD:
   unstage = reset HEAD --
-  puff = pull --ff-only
-  prune = remote prune origin
   thisbranch = rev-parse --abbrev-ref HEAD
   logbranch = ! git log $(git thisbranch) --not master
   rmmerged = ! ([ "`git thisbranch`" != "master" ] && [ "`git thisbranch`" != "main" ]) && echo "not on master branch so refusing to remove merged branches" || git branch --merged | grep -v "\\*" | xargs --no-run-if-empty -n 1 git branch -d
