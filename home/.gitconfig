@@ -13,25 +13,46 @@
   default = upstream
 [alias]
   vimdiff = difftool
+
+  # Short commands (guess who used to use svn...)
   st = status -sb
   ci = commit
   co = checkout
   list = ls-tree --name-only HEAD:
   ls = ls-tree --name-only HEAD:
+
+  # Opposite of git add
   unstage = reset HEAD --
+
+  # Output name of current branch
   thisbranch = rev-parse --abbrev-ref HEAD
+
+  # Log changes in this branch that are not part of master
   logbranch = ! git log $(git thisbranch) --not master
+
+  # Delete branches whose changes have all been merged into master
   rmmerged = ! ([ "`git thisbranch`" != "master" ] && [ "`git thisbranch`" != "main" ]) && echo "not on master branch so refusing to remove merged branches" || git branch --merged | grep -v "\\*" | xargs --no-run-if-empty -n 1 git branch -d
+
+  # Output most recent tag
   toptag = describe --tags --abbrev=0 HEAD
+
+  # Switch to master branch, pull changes and tidy up old branches
   masterup = ! ([ "`git thisbranch`" = "master" ] || git co master) && git pull && git remote prune origin && git rmmerged
+  # Switch to main branch, pull changes and tidy up old branches
   mainup = ! ([ "`git thisbranch`" = "main" ] || git co main) && git pull && git remote prune origin && git rmmerged
+
+  # Run v2-spec-helpers tasks
   syntax = ! bundle exec rake -f `bundle info --path fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:syntax_checkers:all
   syntaxruby = ! bundle exec rake -f `bundle info --path fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:syntax_checkers:ruby
   syntaxjs = ! bundle exec rake -f `bundle info --path fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:syntax_checkers:js
   vuln = ! bundle exec rake -f `bundle info --path fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:vulnerability_scanners:all
   vulnbundle = ! bundle exec rake -f `bundle info --path fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:vulnerability_scanners:bundler_audit
   vulnbrakeman = ! bundle exec rake -f `bundle info --path fatsoma_spec_helpers`/Rakefile.ci fatsoma_spec_helpers:ci:vulnerability_scanners:brakeman
+
+  # Run sed in-place against all files tracked by git
   sed = ! git grep -z --full-name -l '.' | xargs -0 sed -i -e
+
+  # List git aliases
   aliases = ! git config -l | grep alias | cut -c 7-
 [diff]
   tool = gvimdiff
