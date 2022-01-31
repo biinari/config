@@ -369,6 +369,8 @@ alias ghc='ghc -dynamic'
 
 alias make_test_richgo='make test | richgo testfilter'
 
+export GOPRIVATE='github.com/fatsoma'
+
 duh() {
   du -had1 "$@" | sort -h
 }
