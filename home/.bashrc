@@ -148,7 +148,7 @@ gvimdiffr() {
     done
 }
 
-alias find_wcount='find . -path \*.svn\* -prune -o -path \*.git\* -prune -o -path \*vendor\* -prune -o -regex ".*\.\(php\|css\|s[ac]ss\|js\|cs\|coffee\|rb\|rake\|py\|sh\)" -type f'
+alias find_wcount='find . -path \*.svn\* -prune -o -path \*.git\* -prune -o -path \*vendor\* -prune -o -regex ".*\.\(php\|css\|s[ac]ss\|js\|cs\|coffee\|rb\|rake\|py\|sh\|go\)" -type f'
 alias wcrl='find_wcount -exec wc -l \{\} \+'
 alias wcrc='find_wcount -exec wc -c \{\} \+'
 alias wcrw='find_wcount -exec wc -w \{\} \+'
