@@ -76,3 +76,5 @@
 	username = biinari
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[tag]
+	sort = version:refname
