@@ -133,7 +133,7 @@ alias gitvimdiff="GIT_PAGER= GIT_EXTERNAL_DIFF=gitvimdiffwrap git diff"
 alias grepplatform="grep -I --color=auto --exclude='*.svn-base' --exclude='*.swp' --exclude-dir='codapreview' --exclude-dir='.svn'"
 alias sedgrepfile="sed 's/^\\([^:]*\\):.*\$/\\1/' | sort -u"
 
-alias findlarge='du -shx .* * --exclude="." --exclude=".." | grep "^[0-9.]*[MG]"'
+alias findlarge='du -shx .* * --exclude="." --exclude=".." | /usr/bin/grep "^[0-9.]*[MG]"'
 
 gvimdiffr() {
   local left_dir=$1
@@ -162,7 +162,7 @@ csslint_error() {
     /usr/bin/csslint --quiet --format=compact ${csslint_ignores} $* | grep -v '\(Warning\|Is the file empty\|^$\)'
 }
 # shellcheck disable=SC2139
-alias csslintr="find . -name '*.css' -exec csslint --quiet --format=compact ${csslint_ignores} \\{\\} \\; | grep -v '\\(Warning\\|Is the file empty\\|^\$\\)'"
+alias csslintr="find . -name '*.css' -exec csslint --quiet --format=compact ${csslint_ignores} \\{\\} \\; | /usr/bin/grep -v '\\(Warning\\|Is the file empty\\|^\$\\)'"
 
 phplintr() {
     output=$(find . -name "*.php" -exec php -n -l \{\} \;)
@@ -304,7 +304,7 @@ man() {
 alias ri='/usr/bin/ri -d /home/bill/.rbenv/versions/2.0.0-p247/share/ri/2.0.0/system -d /home/bill/.rbenv/versions/2.3.1/share/ri/2.3.0/system'
 alias railspry="rails r \"require 'pry'; pry\""
 alias transpec='RBENV_VERSION=system transpec'
-alias rubymri_lintr="find . -name '*.rb' -not -path '*/generators/*/templates/*' -not -path '*/vendor/*' -exec ruby -W1 -T1 -c \\{\\} \\; | grep -v 'Syntax OK'"
+alias rubymri_lintr="find . -name '*.rb' -not -path '*/generators/*/templates/*' -not -path '*/vendor/*' -exec ruby -W1 -T1 -c \\{\\} \\; | /usr/bin/grep -v 'Syntax OK'"
 alias pylint='pylint --rcfile=/home/bill/.pylintrc'
 alias phpcs='phpcs -s --tab-width=4 --colors --report=full'
 alias ipython2='ipython2 --no-confirm-exit'
