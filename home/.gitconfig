@@ -83,3 +83,5 @@
 	suffix = -beta
 	suffix = -pre
 	suffix = -rc
+[init]
+	defaultBranch = main
