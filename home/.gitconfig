@@ -78,3 +78,8 @@
 	insteadOf = https://github.com/
 [tag]
 	sort = version:refname
+[versionsort]
+	suffix = -alpha
+	suffix = -beta
+	suffix = -pre
+	suffix = -rc
