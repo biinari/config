@@ -85,3 +85,5 @@
 	suffix = -rc
 [init]
 	defaultBranch = main
+[rerere]
+	enabled = true
