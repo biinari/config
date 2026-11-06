@@ -8,7 +8,9 @@
   eol = lf
   autocrlf = input
   excludesfile = /home/bill/.gitignore
-  pager = less -i
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
 [push]
   default = upstream
 [alias]
@@ -85,5 +87,9 @@
 	suffix = -rc
 [init]
 	defaultBranch = main
+[delta]
+  navigate = true
+  dark = true
+  theme = Colddark-Dark
 [rerere]
 	enabled = true
