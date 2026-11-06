@@ -360,6 +360,8 @@ alias nvidia-settings='optirun -b none nvidia-settings -c :8'
 alias auraAu='sudo aura -Akau -x --build=/home/bill/tmp/aur'
 alias auraSyu='sudo aura -Syu'
 
+alias iostat_disks='iostat /dev/nvme?n? /dev/sd?'
+
 alias nets='sudo netstat -tulpn'
 
 alias uuid='/usr/bin/uuid'
