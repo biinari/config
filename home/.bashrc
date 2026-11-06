@@ -389,7 +389,7 @@ databagshow() {
 }
 
 # shellcheck disable=1090
-[ ! -f "$HOME/v2/terraform-tools/bash_completions.sh" ] || . "$HOME/v2/terraform-tools/bash_completions.sh"
+! command -v v2-terraform-tools &>/dev/null || . <(v2-terraform-tools completion bash)
 
 # shellcheck disable=1090
 [ ! -f "$HOME/git/rails_completion/rails.bash" ] || . "$HOME/git/rails_completion/rails.bash"
