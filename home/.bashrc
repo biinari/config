@@ -392,6 +392,9 @@ databagshow() {
 ! command -v v2-terraform-tools &>/dev/null || . <(v2-terraform-tools completion bash)
 
 # shellcheck disable=1090
+! command -v docker-tools &>/dev/null || . <(docker-tools completion bash)
+
+# shellcheck disable=1091
 [ ! -f "$HOME/git/rails_completion/rails.bash" ] || . "$HOME/git/rails_completion/rails.bash"
 
 # shellcheck disable=1091
